@@ -67,8 +67,8 @@ export default function MaskWipeSection() {
 
           <div className="wipe-visual-media">
             <img 
-              src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=800&q=80" 
-              alt="Premium architectural design and engineering layout" 
+              src="https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?auto=format&fit=crop&w=800&q=80" 
+              alt="Premium luxury modern villa facade representing design and construction quality" 
               className="wipe-image-placeholder"
             />
           </div>
@@ -98,8 +98,8 @@ export default function MaskWipeSection() {
 
           <div className="wipe-visual-media">
             <img 
-              src="https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?auto=format&fit=crop&w=800&q=80" 
-              alt="Sustainable future-proof estate layout" 
+              src="https://images.unsplash.com/photo-1582268611958-ebfd161ef9cf?auto=format&fit=crop&w=800&q=80" 
+              alt="Eco-friendly luxury villa development representing sustainable value" 
               className="wipe-image-placeholder"
             />
           </div>

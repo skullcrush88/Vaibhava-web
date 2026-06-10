@@ -172,9 +172,36 @@
     clip-path: none !important;
   }
 
-  /* Keep both panels visible on mobile as alternating dark/light blocks */
+  /* Keep both panels visible on mobile; override light panel styling to make it dark on mobile only */
   .wipe-panel.top-light {
     clip-path: none !important;
+    background-color: var(--bg-dark) !important;
+    color: var(--text-light) !important;
+  }
+
+  .wipe-panel.top-light .wipe-badge {
+    color: var(--text-muted) !important;
+  }
+
+  .wipe-panel.top-light .wipe-desc {
+    color: var(--text-muted) !important;
+  }
+
+  .wipe-panel.top-light .technical-specs-row {
+    border-color: rgba(255, 255, 255, 0.08) !important;
+  }
+
+  .wipe-panel.top-light .spec-val {
+    color: var(--accent-gold) !important;
+  }
+
+  .wipe-panel.top-light .spec-lbl {
+    color: var(--text-muted) !important;
+  }
+
+  .wipe-panel.top-light .wipe-visual-media {
+    background-color: #121315 !important;
+    box-shadow: none !important;
   }
 
   .wipe-content-box {

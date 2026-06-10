@@ -69,11 +69,13 @@ export default function NavigationIsland() {
           className="nav-brand" 
           onClick={(e) => handleNavClick(e, 'home')}
         >
-          <img 
-            src="/logo2.png" 
-            alt="Vaibhava Realty Logo" 
-            className="nav-logo"
-          />
+          <div className="nav-logo-wrapper">
+            <img 
+              src="/logo2.png" 
+              alt="Vaibhava Realty Logo" 
+              className="nav-logo"
+            />
+          </div>
           <span>VAIBHAVA <span className="brand-accent">REALTY</span></span>
         </a>
 

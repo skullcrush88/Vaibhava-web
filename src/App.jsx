@@ -69,12 +69,12 @@ export default function App() {
 
               <div className="hero-ctas">
                 <a
-                  href="#promises"
+                  href="#showcase"
                   className="btn-primary"
-                  onClick={(e) => handleScrollTo(e, 'promises')}
+                  onClick={(e) => handleScrollTo(e, 'showcase')}
                   data-cursor="explore"
                 >
-                  Explore Commitments <ArrowRight size={16} />
+                  Explore Portfolio <ArrowRight size={16} />
                 </a>
                 <a
                   href="#vision"
@@ -123,11 +123,13 @@ export default function App() {
 
               <div className="footer-brand-col">
                 <div style={{ display: 'flex', alignItems: 'center', gap: '0.75rem', marginBottom: '1rem' }}>
-                  <img 
-                    src="/logo2.png" 
-                    alt="Vaibhava Realty Logo" 
-                    style={{ height: '56px', width: '56px', borderRadius: '50%', objectFit: 'cover', border: '1.5px solid var(--accent-gold)' }} 
-                  />
+                  <div style={{ height: '64px', width: '64px', borderRadius: '50%', overflow: 'hidden', border: '1.5px solid var(--accent-gold)', display: 'flex', alignItems: 'center', justifyContent: 'center', flexShrink: 0 }}>
+                    <img 
+                      src="/logo2.png" 
+                      alt="Vaibhava Realty Logo" 
+                      style={{ height: '100%', width: '100%', objectFit: 'cover', transform: 'scale(1.35)' }} 
+                    />
+                  </div>
                   <h3 className="footer-title" style={{ margin: 0 }}>VAIBHAVA <span>REALTY</span></h3>
                 </div>
                 <p className="footer-tagline">
