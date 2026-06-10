@@ -113,7 +113,7 @@ export default function HorizontalScrollShowcase() {
       desc: 'Architecturally stunning, sustainable, and modern homes (flats & villas) engineered with high-end steel structures, open glass facades, and fluid spatial layouts designed for elevated living.',
       img: residentialImage,
       coords: 'LAT: 17.4325° N // LON: 78.4070° E',
-      area: 'JUBILEE HILLS, HYD',
+      area: 'HYDERABAD',
       glass: 'Premium Flats & Villas',
     },
     {
@@ -122,7 +122,7 @@ export default function HorizontalScrollShowcase() {
       desc: 'High-traffic, strategically located office centers and business towers engineered with glazed curtain walls, column-free floor spaces, and smart eco-grid power to scale your operations.',
       img: commercialImage,
       coords: 'LAT: 17.4483° N // LON: 78.3741° E',
-      area: 'HITEC CITY, HYD',
+      area: 'HYDERABAD',
       glass: 'Strategic Workspaces',
     },
     {
@@ -131,7 +131,7 @@ export default function HorizontalScrollShowcase() {
       desc: 'Premium, rapidly appreciating land parcels with massive development potential and custom gated layouts, offering complete freedom of design for bespoke family estates.',
       img: plottingImage,
       coords: 'LAT: 17.3117° N // LON: 78.2751° E',
-      area: 'MOINABAD, HYD',
+      area: 'HYDERABAD',
       glass: 'Gated Custom Layouts',
     },
   ];

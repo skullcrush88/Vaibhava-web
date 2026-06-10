@@ -51,7 +51,7 @@ export default function MaskWipeSection() {
             <span className="wipe-badge">01 // LAND DEVELOPMENT</span>
             <h2 className="wipe-heading">Premium Gated Plotting Ventures</h2>
             <p className="wipe-desc">
-              We develop residential layouts in fast growing zones of Hyderabad, including Moinabad and Shadnagar. Our plots are fully integrated with wide roads, secure gates, underground power grids, and clear legal approvals.
+              We develop residential layouts in fast growing zones of Hyderabad. Our plots are fully integrated with wide roads, secure gates, underground power grids, and clear legal approvals.
             </p>
           </div>
 
@@ -72,7 +72,7 @@ export default function MaskWipeSection() {
             <span className="wipe-badge">02 // RESIDENTIAL & COMMERCIAL</span>
             <h2 className="wipe-heading">Modern Luxury Villas and Offices</h2>
             <p className="wipe-desc">
-              Our construction team builds luxury villas and commercial business spaces in prime locations such as Jubilee Hills and Hitec City. Every project is crafted with high quality building standards, spacious layouts, and excellent connectivity.
+              Our construction team builds luxury villas and commercial business spaces in prime locations across Hyderabad. Every project is crafted with high quality building standards, spacious layouts, and excellent connectivity.
             </p>
             <div className="technical-specs-row">
               <div className="spec-item">
