@@ -1,0 +1,307 @@
+.careers-overlay {
+  position: fixed;
+  inset: 0;
+  background-color: rgba(6, 7, 9, 0.85);
+  backdrop-filter: blur(12px);
+  z-index: 9999;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 2rem;
+  animation: fadeIn 0.4s cubic-bezier(0.16, 1, 0.3, 1) both;
+}
+
+.careers-modal-card {
+  position: relative;
+  width: 100%;
+  max-width: 950px;
+  background: rgba(13, 15, 18, 0.85);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 20px;
+  overflow: hidden;
+  box-shadow: 0 40px 100px rgba(0, 0, 0, 0.6);
+  padding: 3rem;
+  animation: scaleIn 0.5s cubic-bezier(0.16, 1, 0.3, 1) both;
+  max-height: 90vh;
+  overflow-y: auto;
+}
+
+.careers-close-btn {
+  position: absolute;
+  top: 1.5rem;
+  right: 1.5rem;
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  color: var(--text-light);
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  z-index: 10;
+}
+
+.careers-close-btn:hover {
+  background: rgba(255, 255, 255, 0.1);
+  transform: rotate(90deg) scale(1.05);
+  border-color: var(--accent-gold);
+  color: var(--accent-gold);
+}
+
+/* Layout Grid */
+.careers-layout-grid {
+  display: grid;
+  grid-template-columns: 1.1fr 1.3fr;
+  gap: 3.5rem;
+}
+
+/* Left Column: Info */
+.careers-info-side {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  border-right: 1px solid rgba(255, 255, 255, 0.06);
+  padding-right: 2.5rem;
+}
+
+.careers-modal-title {
+  font-size: clamp(2rem, 3vw, 2.8rem);
+  font-weight: 200;
+  line-height: 1.1;
+  letter-spacing: -0.02em;
+  color: var(--text-light);
+}
+
+.careers-modal-desc {
+  font-size: 0.95rem;
+  color: var(--text-muted);
+  line-height: 1.6;
+  font-weight: 300;
+}
+
+.positions-list-box {
+  margin-top: 1.5rem;
+}
+
+.positions-list-box h4 {
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  letter-spacing: 0.1em;
+  color: var(--text-muted);
+  margin-bottom: 1rem;
+}
+
+.positions-list {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.position-card {
+  display: flex;
+  align-items: flex-start;
+  gap: 1rem;
+  padding: 1rem;
+  background: rgba(255, 255, 255, 0.02);
+  border: 1px solid rgba(255, 255, 255, 0.04);
+  border-radius: 10px;
+  cursor: pointer;
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.position-card:hover {
+  background: rgba(197, 160, 89, 0.05);
+  border-color: rgba(197, 160, 89, 0.3);
+  transform: translateY(-2px);
+}
+
+.position-icon {
+  background: rgba(197, 160, 89, 0.1);
+  color: var(--accent-gold);
+  padding: 0.5rem;
+  border-radius: 6px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.position-details {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+}
+
+.pos-title {
+  font-size: 0.95rem;
+  font-weight: 400;
+  color: var(--text-light);
+}
+
+.pos-meta {
+  display: flex;
+  gap: 0.75rem;
+  font-size: 0.75rem;
+  color: var(--text-muted);
+}
+
+.pos-dept {
+  color: var(--accent-gold);
+}
+
+/* Right Column: Form */
+.careers-form-side h4 {
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  letter-spacing: 0.1em;
+  color: var(--text-muted);
+  margin-bottom: 1.5rem;
+}
+
+.careers-apply-form {
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+}
+
+.input-box {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.input-box label {
+  font-size: 0.75rem;
+  font-weight: 400;
+  color: var(--text-muted);
+  display: flex;
+  align-items: center;
+  gap: 0.35rem;
+  font-family: var(--font-sans);
+}
+
+.careers-apply-form input,
+.careers-apply-form select,
+.careers-apply-form textarea {
+  background: rgba(255, 255, 255, 0.02);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 8px;
+  padding: 0.75rem 1rem;
+  color: var(--text-light);
+  font-size: 0.9rem;
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  width: 100%;
+}
+
+.careers-apply-form select option {
+  background-color: #0c0e11;
+  color: var(--text-light);
+}
+
+.careers-apply-form input:focus,
+.careers-apply-form select:focus,
+.careers-apply-form textarea:focus {
+  outline: none;
+  border-color: var(--accent-gold);
+  background: rgba(197, 160, 89, 0.02);
+  box-shadow: 0 0 10px rgba(197, 160, 89, 0.1);
+}
+
+.input-group-row-split {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+}
+
+.careers-submit-btn {
+  margin-top: 0.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  width: 100%;
+}
+
+/* Success State */
+.careers-success-state {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 4rem 1rem;
+  gap: 1.5rem;
+}
+
+.success-icon-box {
+  background: rgba(46, 204, 113, 0.1);
+  color: #2ecc71;
+  padding: 1.5rem;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  animation: scaleBounce 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275) both;
+}
+
+.careers-success-state h2 {
+  font-size: 2rem;
+  font-weight: 300;
+  color: var(--text-light);
+}
+
+.careers-success-state p {
+  font-size: 0.95rem;
+  color: var(--text-muted);
+  max-width: 500px;
+  line-height: 1.6;
+  font-weight: 300;
+}
+
+/* Animations */
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes scaleIn {
+  from { transform: scale(0.95); opacity: 0; }
+  to { transform: scale(1); opacity: 1; }
+}
+
+@keyframes scaleBounce {
+  from { transform: scale(0); }
+  to { transform: scale(1); }
+}
+
+/* Responsive Media Queries */
+@media (max-width: 900px) {
+  .careers-modal-card {
+    padding: 2rem;
+  }
+  
+  .careers-layout-grid {
+    grid-template-columns: 1fr;
+    gap: 2.5rem;
+  }
+
+  .careers-info-side {
+    border-right: none;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+    padding-right: 0;
+    padding-bottom: 2.5rem;
+  }
+}
+
+@media (max-width: 600px) {
+  .careers-overlay {
+    padding: 1rem;
+  }
+  
+  .input-group-row-split {
+    grid-template-columns: 1fr;
+    gap: 1.25rem;
+  }
+}

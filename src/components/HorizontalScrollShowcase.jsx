@@ -109,29 +109,29 @@ export default function HorizontalScrollShowcase() {
     {
       label: 'Featured Segment 01',
       title: 'Residential Properties',
-      desc: 'Premium residential developments featuring modern architecture, sustainable layouts, and excellent building standards in Hyderabad.',
+      desc: 'Premium residential developments featuring modern architecture, sustainable layouts, and excellent building standards.',
       img: residentialImage,
-      coords: 'LAT: 17.4325° N // LON: 78.4070° E',
-      area: 'HYDERABAD',
-      glass: 'Premium Flats & Villas',
+      coords: '',
+      area: 'Prime Zones',
+      glass: 'Luxury Living',
     },
     {
       label: 'Featured Segment 02',
       title: 'Commercial Hubs',
-      desc: 'State of the art commercial spaces and business infrastructure designed for high traffic areas in Hyderabad.',
+      desc: 'State-of-the-art commercial spaces and business infrastructure designed for high-traffic metropolitan corridors.',
       img: commercialImage,
-      coords: 'LAT: 17.4483° N // LON: 78.3741° E',
-      area: 'HYDERABAD',
+      coords: '',
+      area: 'Metro Hubs',
       glass: 'Strategic Workspaces',
     },
     {
       label: 'Featured Segment 03',
       title: 'Plotting Ventures',
-      desc: 'High value gated plotting ventures with modern infrastructure, offering strong appreciation potential and clear legal titles.',
+      desc: 'High-value gated plotting ventures with modern infrastructure, offering strong appreciation potential and clear legal titles.',
       img: plottingImage,
-      coords: 'LAT: 17.3117° N // LON: 78.2751° E',
-      area: 'HYDERABAD',
-      glass: 'Gated Custom Layouts',
+      coords: '',
+      area: 'Growth Corridors',
+      glass: 'Custom Estates',
     },
   ];
 
@@ -182,6 +182,16 @@ export default function HorizontalScrollShowcase() {
                 <span className="slide-meta-label" style={{ color: 'var(--accent-gold)' }}>{prop.label}</span>
                 <h2 className="slide-title">{prop.title}</h2>
                 <p className="slide-desc">{prop.desc}</p>
+                <div className="slide-detail-row">
+                  <div className="detail-metric">
+                    <span className="metric-val">{prop.area}</span>
+                    <span className="metric-lbl">Location</span>
+                  </div>
+                  <div className="detail-metric">
+                    <span className="metric-val">{prop.glass}</span>
+                    <span className="metric-lbl">Scope</span>
+                  </div>
+                </div>
               </div>
 
               <TiltImage src={prop.img} alt={prop.title} coords={prop.coords} />

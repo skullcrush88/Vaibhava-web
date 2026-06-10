@@ -48,17 +48,27 @@ export default function MaskWipeSection() {
       <div className="wipe-panel bottom-dark">
         <div className="wipe-content-box">
           <div className="wipe-text-side">
-            <span className="wipe-badge">01 // LAND DEVELOPMENT</span>
-            <h2 className="wipe-heading">Premium Gated Plotting Ventures</h2>
+            <span className="wipe-badge">01 // DESIGN INTEGRITY</span>
+            <h2 className="wipe-heading">Uncompromising Standards</h2>
             <p className="wipe-desc">
-              We develop residential layouts in fast growing zones of Hyderabad. Our plots are fully integrated with wide roads, secure gates, underground power grids, and clear legal approvals.
+              We believe architectural excellence is born from the harmony of design and structural integrity. Every development we undertake is guided by a commitment to longevity, precision, and complete regulatory transparency.
             </p>
+            <div className="technical-specs-row">
+              <div className="spec-item">
+                <span className="spec-val">Grade A</span>
+                <span className="spec-lbl">Structural Quality</span>
+              </div>
+              <div className="spec-item">
+                <span className="spec-val">100% Clear</span>
+                <span className="spec-lbl">Legal Compliance</span>
+              </div>
+            </div>
           </div>
 
           <div className="wipe-visual-media">
             <img 
               src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=800&q=80" 
-              alt="Premium land plotting layouts in Hyderabad" 
+              alt="Premium architectural design and engineering layout" 
               className="wipe-image-placeholder"
             />
           </div>
@@ -69,19 +79,19 @@ export default function MaskWipeSection() {
       <div className="wipe-panel top-light" ref={topPanelRef}>
         <div className="wipe-content-box">
           <div className="wipe-text-side">
-            <span className="wipe-badge">02 // RESIDENTIAL & COMMERCIAL</span>
-            <h2 className="wipe-heading">Modern Luxury Villas and Offices</h2>
+            <span className="wipe-badge">02 // FORWARD THINKING</span>
+            <h2 className="wipe-heading">Sustainable Value</h2>
             <p className="wipe-desc">
-              Our construction team builds luxury villas and commercial business spaces in prime locations across Hyderabad. Every project is crafted with high quality building standards, spacious layouts, and excellent connectivity.
+              Building for tomorrow means integrating sustainable infrastructure, modern utility grids, and eco-conscious engineering. We design master-planned spaces that protect your capital and thrive for generations.
             </p>
             <div className="technical-specs-row">
               <div className="spec-item">
-                <span className="spec-val">A Grade</span>
-                <span className="spec-lbl">Construction</span>
+                <span className="spec-val">Eco-Grid</span>
+                <span className="spec-lbl">Resilient Utilities</span>
               </div>
               <div className="spec-item">
-                <span className="spec-val">Clear Title</span>
-                <span className="spec-lbl">Legal Approvals</span>
+                <span className="spec-val">Generation+</span>
+                <span className="spec-lbl">Asset Longevity</span>
               </div>
             </div>
           </div>
@@ -89,7 +99,7 @@ export default function MaskWipeSection() {
           <div className="wipe-visual-media">
             <img 
               src="https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?auto=format&fit=crop&w=800&q=80" 
-              alt="Luxury residential and commercial developments" 
+              alt="Sustainable future-proof estate layout" 
               className="wipe-image-placeholder"
             />
           </div>

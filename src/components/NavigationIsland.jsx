@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react';
 import { Menu, X } from 'lucide-react';
+import CareersModal from './CareersModal';
 import './NavigationIsland.css';
 
 export default function NavigationIsland() {
@@ -8,6 +9,7 @@ export default function NavigationIsland() {
   const [hovered, setHovered] = useState(false);
   const [scrollPercent, setScrollPercent] = useState(0);
   const [menuOpen, setMenuOpen] = useState(false);
+  const [isCareersOpen, setIsCareersOpen] = useState(false);
 
   useEffect(() => {
     let lastScrollY = window.scrollY;
@@ -89,6 +91,18 @@ export default function NavigationIsland() {
           <li className="nav-link-item">
             <a href="#inquire" onClick={(e) => handleNavClick(e, 'inquire')}>Inquire</a>
           </li>
+          <li className="nav-link-item">
+            <a 
+              href="#careers" 
+              onClick={(e) => {
+                e.preventDefault();
+                setMenuOpen(false);
+                setIsCareersOpen(true);
+              }}
+            >
+              Careers
+            </a>
+          </li>
           {/* Duplicate CTA inside mobile menu list for clean vertical layout stack */}
           <li className="nav-link-item mobile-cta-item">
             <button className="nav-action-btn" onClick={(e) => handleNavClick(e, 'inquire')}>
@@ -116,6 +130,7 @@ export default function NavigationIsland() {
           <div className="nav-progress-fill" style={{ width: `${scrollPercent}%` }} />
         </div>
       </nav>
+      <CareersModal isOpen={isCareersOpen} onClose={() => setIsCareersOpen(false)} />
     </div>
   );
 }

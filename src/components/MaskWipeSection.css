@@ -172,8 +172,9 @@
     clip-path: none !important;
   }
 
+  /* Keep both panels visible on mobile as alternating dark/light blocks */
   .wipe-panel.top-light {
-    display: none !important;
+    clip-path: none !important;
   }
 
   .wipe-content-box {

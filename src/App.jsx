@@ -147,7 +147,6 @@ export default function App() {
                 <h4>COMPANY</h4>
                 <ul className="footer-links-list">
                   <li><a href="#about" onClick={(e) => handleScrollTo(e, 'about')}>About Us</a></li>
-                  <li><a href="#vision" onClick={(e) => handleScrollTo(e, 'vision')}>Our Philosophy</a></li>
                   <li><a href="#faq" onClick={(e) => handleScrollTo(e, 'faq')}>FAQ</a></li>
                   <li><a href="#inquire" onClick={(e) => handleScrollTo(e, 'inquire')}>Bookings</a></li>
                 </ul>
