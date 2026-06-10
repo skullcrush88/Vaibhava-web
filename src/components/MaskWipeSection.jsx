@@ -48,18 +48,17 @@ export default function MaskWipeSection() {
       <div className="wipe-panel bottom-dark">
         <div className="wipe-content-box">
           <div className="wipe-text-side">
-            <span className="wipe-badge">01 // Architectural Shell</span>
-            <h2 className="wipe-heading">Framing the Natural Landscape.</h2>
+            <span className="wipe-badge">01 // LAND DEVELOPMENT</span>
+            <h2 className="wipe-heading">Premium Gated Plotting Ventures</h2>
             <p className="wipe-desc">
-              At Vibhava Realty, we prioritize spatial geometry. Our luxury developments incorporate minimal structural columns and wide frameless glazing, turning the natural landscape into a dynamic canvas.
+              We develop residential layouts in fast growing zones of Hyderabad, including Moinabad and Shadnagar. Our plots are fully integrated with wide roads, secure gates, underground power grids, and clear legal approvals.
             </p>
-
           </div>
 
           <div className="wipe-visual-media">
             <img 
               src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=800&q=80" 
-              alt="Structural Glazing Steel Grid" 
+              alt="Premium land plotting layouts in Hyderabad" 
               className="wipe-image-placeholder"
             />
           </div>
@@ -70,19 +69,19 @@ export default function MaskWipeSection() {
       <div className="wipe-panel top-light" ref={topPanelRef}>
         <div className="wipe-content-box">
           <div className="wipe-text-side">
-            <span className="wipe-badge">02 // Spatial Interior</span>
-            <h2 className="wipe-heading">Infused with Fluid Light.</h2>
+            <span className="wipe-badge">02 // RESIDENTIAL & COMMERCIAL</span>
+            <h2 className="wipe-heading">Modern Luxury Villas and Offices</h2>
             <p className="wipe-desc">
-              By removing traditional visual thresholds, our spaces breathe. Natural sunlight flows deeply through sliding systems, blending concrete interiors and garden environments into one fluid living zone.
+              Our construction team builds luxury villas and commercial business spaces in prime locations such as Jubilee Hills and Hitec City. Every project is crafted with high quality building standards, spacious layouts, and excellent connectivity.
             </p>
             <div className="technical-specs-row">
               <div className="spec-item">
-                <span className="spec-val">4.5m</span>
-                <span className="spec-lbl">Ceiling Clearance</span>
+                <span className="spec-val">A Grade</span>
+                <span className="spec-lbl">Construction</span>
               </div>
               <div className="spec-item">
-                <span className="spec-val">Double</span>
-                <span className="spec-lbl">Thermal Seal</span>
+                <span className="spec-val">Clear Title</span>
+                <span className="spec-lbl">Legal Approvals</span>
               </div>
             </div>
           </div>
@@ -90,7 +89,7 @@ export default function MaskWipeSection() {
           <div className="wipe-visual-media">
             <img 
               src="https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?auto=format&fit=crop&w=800&q=80" 
-              alt="Bright Glass interior space" 
+              alt="Luxury residential and commercial developments" 
               className="wipe-image-placeholder"
             />
           </div>

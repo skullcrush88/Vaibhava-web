@@ -136,7 +136,7 @@ export default function App() {
                   <h3 className="footer-title" style={{ margin: 0 }}>VAIBHAVA <span>REALTY</span></h3>
                 </div>
                 <p className="footer-tagline">
-                  Welcome to Vaibhava Realty, where we don’t just build structures—we shape grandeur, foster community, and cultivate prosperity.
+                  Vaibhava Realty is a premier property development company in Hyderabad, specializing in high quality residential buildings, commercial hubs, and plotting ventures.
                 </p>
               </div>
 

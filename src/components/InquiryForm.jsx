@@ -69,7 +69,7 @@ export default function InquiryForm() {
             <div className="inquiry-contact-details">
               <div className="contact-detail-item">
                 <span className="lbl">Planning Office Email</span>
-                <span className="val"><a href="mailto:manchukondasaiteja@gmail.com" style={{ color: 'inherit', textDecoration: 'none' }}>manchukondasaiteja@gmail.com</a></span>
+                <span className="val"><a href="mailto:info@vaibhavarealty.com" style={{ color: 'inherit', textDecoration: 'none' }}>info@vaibhavarealty.com</a></span>
               </div>
               <div className="contact-detail-item">
                 <span className="lbl">Tel / WhatsApp</span>
@@ -77,7 +77,7 @@ export default function InquiryForm() {
               </div>
               <div className="contact-detail-item">
                 <span className="lbl">Studio Hours</span>
-                <span className="val">Mon—Sat 09:00—19:00 IST</span>
+                <span className="val">Mon to Sat, 10:00 AM to 6:30 PM</span>
               </div>
               <div className="contact-detail-item">
                 <span className="lbl">Registered Office</span>
