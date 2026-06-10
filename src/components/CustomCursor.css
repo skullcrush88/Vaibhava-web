@@ -1,0 +1,83 @@
+.custom-cursor-ring {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 36px;
+  height: 36px;
+  border: 1px solid var(--accent-gold);
+  border-radius: 50%;
+  pointer-events: none;
+  z-index: 9999;
+  transform: translate(-50%, -50%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: width 0.25s cubic-bezier(0.16, 1, 0.3, 1),
+              height 0.25s cubic-bezier(0.16, 1, 0.3, 1),
+              background-color 0.25s cubic-bezier(0.16, 1, 0.3, 1),
+              border-color 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.custom-cursor-dot {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 6px;
+  height: 6px;
+  background-color: var(--accent-gold);
+  border-radius: 50%;
+  pointer-events: none;
+  z-index: 10000;
+  transform: translate(-50%, -50%);
+  transition: transform 0.1s ease,
+              width 0.2s ease,
+              height 0.2s ease,
+              background-color 0.2s ease;
+}
+
+/* Hover over interactive elements */
+.custom-cursor-ring.pointer {
+  width: 50px;
+  height: 50px;
+  border-color: var(--text-light);
+  background-color: rgba(205, 162, 107, 0.08);
+}
+
+.custom-cursor-dot.pointer {
+  width: 4px;
+  height: 4px;
+  background-color: var(--text-light);
+}
+
+/* Hover over special elements with data-cursor labels */
+.custom-cursor-ring.text {
+  width: 64px;
+  height: 64px;
+  background-color: var(--accent-gold);
+  border-color: var(--accent-gold);
+}
+
+.custom-cursor-dot.text {
+  opacity: 0;
+}
+
+.custom-cursor-label {
+  font-family: var(--font-mono);
+  font-size: 0.65rem;
+  font-weight: 600;
+  color: var(--bg-dark);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  pointer-events: none;
+}
+
+/* Hide default cursor on desktop when custom cursor is active */
+@media (pointer: fine) {
+  a, button, select, input, textarea, [data-cursor] {
+    cursor: none !important;
+  }
+  
+  html, body {
+    cursor: none !important;
+  }
+}

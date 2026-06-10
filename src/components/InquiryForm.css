@@ -1,0 +1,318 @@
+.inquiry-section {
+  padding: 8rem 0;
+  background-color: var(--bg-dark);
+  border-top: 1px solid var(--border-technical);
+  position: relative;
+  overflow: hidden;
+}
+
+.inquiry-grid {
+  display: grid;
+  grid-template-columns: 1.2fr 1fr;
+  gap: 6rem;
+  align-items: center;
+}
+
+@media (max-width: 900px) {
+  .inquiry-grid {
+    grid-template-columns: 1fr;
+    gap: 4rem;
+  }
+}
+
+.inquiry-info-side {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+.inquiry-h2 {
+  font-size: clamp(2.5rem, 5vw, 4.5rem);
+  font-weight: 200;
+  line-height: 1;
+  letter-spacing: -0.03em;
+}
+
+.inquiry-contact-details {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  margin-top: 2rem;
+}
+
+.contact-detail-item {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+}
+
+.contact-detail-item .lbl {
+  font-family: var(--font-mono);
+  font-size: 0.65rem;
+  color: var(--text-muted);
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+}
+
+.contact-detail-item .val {
+  font-size: 1.15rem;
+  font-weight: 300;
+  color: var(--text-light);
+}
+
+/* Glassmorphic Form Card */
+.inquiry-form-card {
+  padding: 3rem;
+}
+
+@media (max-width: 480px) {
+  .inquiry-form-card {
+    padding: 2rem 1.5rem;
+  }
+}
+
+.form-inputs-stack {
+  display: flex;
+  flex-direction: column;
+  gap: 1.75rem;
+}
+
+.form-input-group {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.form-input-group label {
+  font-family: var(--font-mono);
+  font-size: 0.65rem;
+  color: var(--text-muted);
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+}
+
+.form-text-input, 
+.form-select-input,
+.form-textarea {
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 8px;
+  padding: 0.85rem 1rem;
+  color: var(--text-light);
+  font-family: var(--font-sans);
+  font-size: 0.95rem;
+  font-weight: 300;
+  transition: var(--transition-fast);
+  outline: none;
+}
+
+.form-select-input option {
+  background: #121315;
+  color: var(--text-light);
+}
+
+.form-text-input:focus,
+.form-select-input:focus,
+.form-textarea:focus {
+  border-color: rgba(255, 255, 255, 0.25);
+  background: rgba(255, 255, 255, 0.06);
+}
+
+.form-textarea {
+  resize: none;
+  min-height: 120px;
+}
+
+.form-submit-btn {
+  background: var(--accent-gold);
+  color: var(--bg-dark);
+  border: none;
+  padding: 1rem;
+  border-radius: 30px;
+  font-family: var(--font-sans);
+  font-weight: 600;
+  font-size: 0.95rem;
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 0.5rem;
+  transition: var(--transition-smooth);
+}
+
+.form-submit-btn:hover {
+  background: var(--text-light);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 24px rgba(205, 162, 107, 0.35);
+}
+
+/* Success Banner */
+.form-success-banner {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+  text-align: center;
+  padding: 2rem 0;
+}
+
+.success-icon-box {
+  background: rgba(255, 255, 255, 0.02);
+  border: 1px solid var(--border-technical-strong);
+  padding: 1rem;
+  border-radius: 50%;
+  color: var(--text-light);
+}
+
+/* Calendar Scheduler Styles */
+.scheduler-group {
+  margin-top: 0.25rem;
+}
+
+.scheduler-days-grid {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 0.5rem;
+  margin-top: 0.5rem;
+}
+
+@media (max-width: 480px) {
+  .scheduler-days-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+.scheduler-day-card {
+  background: rgba(255, 255, 255, 0.02);
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  padding: 0.75rem 0.4rem;
+  border-radius: 8px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 0.2rem;
+  cursor: pointer;
+  outline: none;
+  transition: var(--transition-fast);
+}
+
+.scheduler-day-card:hover {
+  background: rgba(255, 255, 255, 0.06);
+  border-color: rgba(255, 255, 255, 0.15);
+}
+
+.scheduler-day-card.active {
+  border-color: var(--accent-gold);
+  background: rgba(205, 162, 107, 0.08);
+}
+
+.scheduler-day-name {
+  font-family: var(--font-mono);
+  font-size: 0.55rem;
+  color: var(--text-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  transition: var(--transition-fast);
+}
+
+.scheduler-day-card.active .scheduler-day-name {
+  color: var(--accent-gold);
+}
+
+.scheduler-date-num {
+  font-size: 0.75rem;
+  font-weight: 500;
+  color: var(--text-light);
+  white-space: nowrap;
+  transition: var(--transition-fast);
+}
+
+.scheduler-day-card.active .scheduler-date-num {
+  color: var(--accent-gold);
+}
+
+/* Times slots */
+.scheduler-times-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 0.5rem;
+  margin-top: 0.5rem;
+}
+
+@media (max-width: 480px) {
+  .scheduler-times-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+.scheduler-time-badge {
+  background: rgba(255, 255, 255, 0.02);
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  padding: 0.5rem 0.25rem;
+  border-radius: 6px;
+  font-family: var(--font-mono);
+  font-size: 0.65rem;
+  color: var(--text-muted);
+  cursor: pointer;
+  outline: none;
+  text-align: center;
+  transition: var(--transition-fast);
+}
+
+.scheduler-time-badge:hover {
+  background: rgba(255, 255, 255, 0.06);
+  border-color: rgba(255, 255, 255, 0.15);
+  color: var(--text-light);
+}
+
+.scheduler-time-badge.active {
+  border-color: var(--accent-gold);
+  color: var(--bg-dark);
+  background: var(--accent-gold);
+  font-weight: 600;
+}
+
+/* Success Scheduled Box */
+.scheduled-appointment-summary {
+  margin: 1.5rem 0;
+  padding: 1.25rem;
+  background: rgba(205, 162, 107, 0.08);
+  border: 1px solid var(--border-technical-strong);
+  border-radius: 12px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.4rem;
+  width: 100%;
+}
+
+.appt-badge {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  color: var(--accent-gold);
+  font-family: var(--font-mono);
+  font-size: 0.85rem;
+  font-weight: 500;
+}
+
+.appt-note {
+  font-size: 0.75rem;
+  color: var(--text-muted);
+}
+
+.anim-fade-in {
+  animation: schedFadeIn 0.5s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+@keyframes schedFadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(8px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
