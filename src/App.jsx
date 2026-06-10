@@ -125,7 +125,7 @@ export default function App() {
                   <img 
                     src="/logo2.png" 
                     alt="Vaibhava Realty Logo" 
-                    style={{ height: '48px', width: '48px', borderRadius: '50%', objectFit: 'cover', border: '1.5px solid var(--accent-gold)' }} 
+                    style={{ height: '56px', width: '56px', borderRadius: '50%', objectFit: 'cover', border: '1.5px solid var(--accent-gold)' }} 
                   />
                   <h3 className="footer-title" style={{ margin: 0 }}>VAIBHAVA <span>REALTY</span></h3>
                 </div>
