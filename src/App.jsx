@@ -40,7 +40,8 @@ export default function App() {
             loop
             muted
             playsInline
-            src="/gemini_generated_video_e38ca2fc.mp4"
+            preload="auto"
+            src="/drone.mp4"
           />
           <div className="hero-vignette" />
 
