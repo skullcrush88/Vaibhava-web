@@ -76,7 +76,7 @@ export default function InquiryForm() {
                 <span className="val"><a href="tel:+919059458484" style={{ color: 'inherit', textDecoration: 'none' }}>+91 9059458484</a></span>
               </div>
               <div className="contact-detail-item">
-                <span className="lbl">Studio Hours</span>
+                <span className="lbl">Office Hours</span>
                 <span className="val">Mon to Sat, 10:00 AM to 6:30 PM</span>
               </div>
               <div className="contact-detail-item">
@@ -103,17 +103,7 @@ export default function InquiryForm() {
               />
             </div>
 
-            {/* Download Brochure Link */}
-            <div style={{ marginTop: '1.5rem' }}>
-              <a 
-                href="/favicon.svg" 
-                download="Vaibhava_Realty_Brochure.svg"
-                className="btn-secondary"
-                style={{ display: 'inline-flex', width: 'auto', padding: '0.6rem 1.2rem', fontSize: '0.8rem', textDecoration: 'none', borderRadius: '4px' }}
-              >
-                Download Corporate Brochure
-              </a>
-            </div>
+
           </div>
 
           {/* Form Card Column */}

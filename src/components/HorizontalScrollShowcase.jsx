@@ -47,7 +47,6 @@ function TiltImage({ src, alt, coords }) {
       }}
       data-cursor="explore"
     >
-      <span className="slide-geometry-tag">{coords}</span>
       <img src={src} alt={alt} className="slide-image" />
     </div>
   );
@@ -148,7 +147,6 @@ export default function HorizontalScrollShowcase() {
             {properties.map((prop, idx) => (
               <div className="mobile-showcase-card" key={idx}>
                 <div className="mobile-card-img-box">
-                  <span className="mobile-card-geometry-tag">{prop.coords}</span>
                   <img src={prop.img} alt={prop.title} className="mobile-card-img" />
                 </div>
                 <div className="mobile-card-text">

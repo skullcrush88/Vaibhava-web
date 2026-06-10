@@ -1,5 +1,5 @@
 import './AboutUs.css';
-import aboutImage from '../assets/commercial_office_complex.jpeg';
+import aboutImage from '../assets/about_us_new.png';
 
 export default function AboutUs() {
 
@@ -46,17 +46,6 @@ export default function AboutUs() {
                 alt="Modern commercial office complex detailing structural steel glass" 
                 className="about-primary-img"
               />
-              <div className="about-glass-overlay" style={{ display: 'flex', gap: '1rem', alignItems: 'center' }}>
-                <img 
-                  src="/logo2.png" 
-                  alt="Vaibhava Realty Logo" 
-                  style={{ height: '36px', width: '36px', borderRadius: '50%', objectFit: 'cover', border: '1px solid rgba(255, 255, 255, 0.15)' }} 
-                />
-                <div>
-                  <h4 className="overlay-title" style={{ margin: 0, marginBottom: '0.25rem' }}>HYDERABAD DEVELOPMENTS</h4>
-                  <p className="overlay-text" style={{ margin: 0 }}>Developing high quality gated communities, commercial hubs, and luxury residences.</p>
-                </div>
-              </div>
             </div>
           </div>
         </div>

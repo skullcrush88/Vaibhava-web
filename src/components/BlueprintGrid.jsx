@@ -24,25 +24,7 @@ export default function BlueprintGrid() {
         <div className="col-divider"></div>
       </div>
 
-      {/* Decorative architectural technical text markers */}
-      <div className="architectural-coords" style={styles.coordsPanel}>
-        <div style={styles.coordItem}>
-          <span style={styles.coordLabel}>SYS_ELEV:</span>
-          <span style={styles.coordVal}>17.43°N</span>
-        </div>
-        <div style={styles.coordItem}>
-          <span style={styles.coordLabel}>SYS_LOC:</span>
-          <span style={styles.coordVal}>78.40°E</span>
-        </div>
-        <div style={styles.coordItem}>
-          <span style={styles.coordLabel}>VIEW_X:</span>
-          <span style={styles.coordVal}>{coords.x}%</span>
-        </div>
-        <div style={styles.coordItem}>
-          <span style={styles.coordLabel}>VIEW_Y:</span>
-          <span style={styles.coordVal}>{coords.y}%</span>
-        </div>
-      </div>
+
     </>
   );
 }

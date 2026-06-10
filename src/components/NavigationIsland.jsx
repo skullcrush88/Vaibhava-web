@@ -23,8 +23,9 @@ export default function NavigationIsland() {
       }
 
       // 2. Scroll-direction hiding (hide on down scroll, reveal on up scroll)
-      // Only hide on scroll if mobile menu is closed
-      if (currentScrollY > lastScrollY && currentScrollY > 180 && !menuOpen) {
+      // Only hide on scroll if mobile menu is closed and not on mobile screens
+      const isMobile = window.innerWidth <= 768;
+      if (currentScrollY > lastScrollY && currentScrollY > 180 && !menuOpen && !isMobile) {
         setHidden(true);
       } else {
         setHidden(false);
@@ -80,10 +81,7 @@ export default function NavigationIsland() {
             <a href="#about" onClick={(e) => handleNavClick(e, 'about')}>About Us</a>
           </li>
           <li className="nav-link-item">
-            <a href="#developments" onClick={(e) => handleNavClick(e, 'developments')}>Developments</a>
-          </li>
-          <li className="nav-link-item">
-            <a href="#gallery" onClick={(e) => handleNavClick(e, 'gallery')}>Gallery</a>
+            <a href="#promises" onClick={(e) => handleNavClick(e, 'promises')}>Promises</a>
           </li>
           <li className="nav-link-item">
             <a href="#faq" onClick={(e) => handleNavClick(e, 'faq')}>FAQ</a>

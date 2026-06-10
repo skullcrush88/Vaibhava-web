@@ -7,12 +7,11 @@ import BlueprintGrid from './components/BlueprintGrid';
 import NavigationIsland from './components/NavigationIsland';
 import HorizontalScrollShowcase from './components/HorizontalScrollShowcase';
 import MaskWipeSection from './components/MaskWipeSection';
-import Developments from './components/Developments';
+import Promises from './components/Promises';
 import InquiryForm from './components/InquiryForm';
 import BlurText from './components/BlurText';
 import CustomCursor from './components/CustomCursor';
 import AboutUs from './components/AboutUs';
-import Gallery from './components/Gallery';
 import FAQ from './components/FAQ';
 
 export default function App() {
@@ -69,12 +68,12 @@ export default function App() {
 
               <div className="hero-ctas">
                 <a
-                  href="#developments"
+                  href="#promises"
                   className="btn-primary"
-                  onClick={(e) => handleScrollTo(e, 'developments')}
+                  onClick={(e) => handleScrollTo(e, 'promises')}
                   data-cursor="explore"
                 >
-                  Explore Estates <ArrowRight size={16} />
+                  Explore Commitments <ArrowRight size={16} />
                 </a>
                 <a
                   href="#vision"
@@ -88,9 +87,7 @@ export default function App() {
             </div>
           </div>
 
-          <div className="hero-latlong">
-            GRID // 17.43 N : 78.40 E
-          </div>
+
 
           <div className="hero-scroll-indicator">
             <span>SCROLL TO VIEW</span>
@@ -108,11 +105,8 @@ export default function App() {
           {/* 3. Mask Wipe Section */}
           <MaskWipeSection />
 
-          {/* 4. Developments Portfolio Showcase */}
-          <Developments />
-
-          {/* 5. Project Gallery Section */}
-          <Gallery />
+          {/* 4. Corporate Commitments & Promises Section */}
+          <Promises />
 
           {/* 6. FAQ Section */}
           <FAQ />
@@ -141,12 +135,11 @@ export default function App() {
               </div>
 
               <div className="footer-links-col">
-                <h4>ESTATES</h4>
+                <h4>SEGMENTS</h4>
                 <ul className="footer-links-list">
-                  <li><a href="#developments" onClick={(e) => handleScrollTo(e, 'developments')}>Vaibhava Aura Villas</a></li>
-                  <li><a href="#developments" onClick={(e) => handleScrollTo(e, 'developments')}>Vaibhava Tech Square</a></li>
-                  <li><a href="#developments" onClick={(e) => handleScrollTo(e, 'developments')}>Vaibhava Meadow Plots</a></li>
-                  <li><a href="#developments" onClick={(e) => handleScrollTo(e, 'developments')}>Vaibhava Capital Hub</a></li>
+                  <li><a href="#showcase" onClick={(e) => handleScrollTo(e, 'showcase')}>Residential Properties</a></li>
+                  <li><a href="#showcase" onClick={(e) => handleScrollTo(e, 'showcase')}>Commercial Hubs</a></li>
+                  <li><a href="#showcase" onClick={(e) => handleScrollTo(e, 'showcase')}>Plotting Ventures</a></li>
                 </ul>
               </div>
 
@@ -155,7 +148,6 @@ export default function App() {
                 <ul className="footer-links-list">
                   <li><a href="#about" onClick={(e) => handleScrollTo(e, 'about')}>About Us</a></li>
                   <li><a href="#vision" onClick={(e) => handleScrollTo(e, 'vision')}>Our Philosophy</a></li>
-                  <li><a href="#gallery" onClick={(e) => handleScrollTo(e, 'gallery')}>Gallery</a></li>
                   <li><a href="#faq" onClick={(e) => handleScrollTo(e, 'faq')}>FAQ</a></li>
                   <li><a href="#inquire" onClick={(e) => handleScrollTo(e, 'inquire')}>Bookings</a></li>
                 </ul>
@@ -180,7 +172,6 @@ export default function App() {
 
             <div className="footer-baseline">
               <div>© 2026 VAIBHAVA REALTY. ALL RIGHTS RESERVED.</div>
-              <div>DESIGN INSPIRED BY FLUID GLASS // CODED WITH PRECISION</div>
             </div>
           </div>
         </footer>
