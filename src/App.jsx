@@ -64,7 +64,7 @@ export default function App() {
                 />
               </h1>
               <p className="hero-desc">
-                Whether you are buying your first home, expanding your corporate footprint, or securing land for future generations, Vaibhava Realty provides the blueprint for your success. Let’s build something extraordinary together.
+                Building modern infrastructure, sustainable developments, and premium lands in Hyderabad. We design spaces that offer exceptional quality and value for future generations.
               </p>
 
               <div className="hero-ctas">

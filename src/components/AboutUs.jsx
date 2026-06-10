@@ -13,13 +13,13 @@ export default function AboutUs() {
           <div className="about-text-side">
             <span className="mono-label" style={{ color: 'var(--accent-gold)' }}>ABOUT VAIBHAVA REALTY</span>
             <h2 className="about-heading">
-              Building Premium Landmarks and Gated Communities
+              Building Modern Infrastructure and Sustainable Communities
             </h2>
             <p className="about-desc-main">
-              Vaibhava Realty is a premier property development company based in Hyderabad. We specialize in residential buildings, commercial spaces, and gated land developments.
+              Vaibhava Realty is a premier property development company based in Hyderabad. We specialize in building modern infrastructure, sustainable residential spaces, and gated land developments.
             </p>
             <p className="about-desc-secondary">
-              Our mission is to create spaces with complete legal transparency and long term value. Whether you are looking for a modern home or a high return plot investment, we ensure structural quality and secure planning in every project.
+              Our mission is to combine sustainability and quality engineering to deliver long term value. Whether you are looking for a modern villa or a premium land investment, we ensure legal transparency and secure planning in every development.
             </p>
 
             <div className="about-stats-row">

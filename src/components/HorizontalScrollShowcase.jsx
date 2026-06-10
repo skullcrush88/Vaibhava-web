@@ -110,7 +110,7 @@ export default function HorizontalScrollShowcase() {
     {
       label: 'Featured Segment 01',
       title: 'Residential Properties',
-      desc: 'Architecturally stunning, sustainable, and modern homes (flats & villas) engineered with high-end steel structures, open glass facades, and fluid spatial layouts designed for elevated living.',
+      desc: 'Premium residential developments featuring modern architecture, sustainable layouts, and excellent building standards in Hyderabad.',
       img: residentialImage,
       coords: 'LAT: 17.4325° N // LON: 78.4070° E',
       area: 'HYDERABAD',
@@ -119,7 +119,7 @@ export default function HorizontalScrollShowcase() {
     {
       label: 'Featured Segment 02',
       title: 'Commercial Hubs',
-      desc: 'High-traffic, strategically located office centers and business towers engineered with glazed curtain walls, column-free floor spaces, and smart eco-grid power to scale your operations.',
+      desc: 'State of the art commercial spaces and business infrastructure designed for high traffic areas in Hyderabad.',
       img: commercialImage,
       coords: 'LAT: 17.4483° N // LON: 78.3741° E',
       area: 'HYDERABAD',
@@ -128,7 +128,7 @@ export default function HorizontalScrollShowcase() {
     {
       label: 'Featured Segment 03',
       title: 'Plotting Ventures',
-      desc: 'Premium, rapidly appreciating land parcels with massive development potential and custom gated layouts, offering complete freedom of design for bespoke family estates.',
+      desc: 'High value gated plotting ventures with modern infrastructure, offering strong appreciation potential and clear legal titles.',
       img: plottingImage,
       coords: 'LAT: 17.3117° N // LON: 78.2751° E',
       area: 'HYDERABAD',

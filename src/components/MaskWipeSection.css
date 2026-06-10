@@ -173,7 +173,7 @@
   }
 
   .wipe-panel.top-light {
-    clip-path: none !important;
+    display: none !important;
   }
 
   .wipe-content-box {
