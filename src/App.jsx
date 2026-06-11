@@ -1,3 +1,4 @@
+import { useState, useEffect } from 'react';
 import { ArrowRight, Globe, Layers, ShieldCheck, Phone, MessageCircle } from 'lucide-react';
 import './App.css';
 
@@ -15,6 +16,19 @@ import AboutUs from './components/AboutUs';
 import FAQ from './components/FAQ';
 
 export default function App() {
+  const [isMobile, setIsMobile] = useState(false);
+
+  useEffect(() => {
+    const mediaQuery = window.matchMedia('(max-width: 768px)');
+    setIsMobile(mediaQuery.matches);
+
+    const handler = (e) => setIsMobile(e.matches);
+    mediaQuery.addEventListener('change', handler);
+    return () => mediaQuery.removeEventListener('change', handler);
+  }, []);
+
+  const videoSrc = isMobile ? '/logovid.mp4' : '/drone.mp4';
+
   const handleScrollTo = (e, targetId) => {
     e.preventDefault();
     const element = document.getElementById(targetId);
@@ -35,13 +49,14 @@ export default function App() {
         <header className="hero-section">
           {/* Loop Background Video Source */}
           <video
+            key={videoSrc}
             className="hero-video-bg"
             autoPlay
             loop
             muted
             playsInline
             preload="auto"
-            src="/drone.mp4"
+            src={videoSrc}
           />
           <div className="hero-vignette" />
 
