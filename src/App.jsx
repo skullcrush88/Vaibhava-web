@@ -123,11 +123,11 @@ export default function App() {
 
               <div className="footer-brand-col">
                 <div style={{ display: 'flex', alignItems: 'center', gap: '0.75rem', marginBottom: '1rem' }}>
-                  <div style={{ height: '64px', width: '64px', borderRadius: '50%', overflow: 'hidden', border: '1.5px solid var(--accent-gold)', display: 'flex', alignItems: 'center', justifyContent: 'center', flexShrink: 0 }}>
+                  <div style={{ height: '64px', width: '64px', borderRadius: '2px', overflow: 'hidden', border: '1.5px solid var(--accent-gold)', display: 'flex', alignItems: 'center', justifyContent: 'center', flexShrink: 0, padding: '4px', background: 'rgba(0, 0, 0, 0.25)' }}>
                     <img 
                       src="/logo2.png" 
                       alt="Vaibhava Realty Logo" 
-                      style={{ height: '100%', width: '100%', objectFit: 'cover', transform: 'scale(1.35)' }} 
+                      style={{ height: '100%', width: '100%', objectFit: 'contain', transform: 'scale(1.15)' }} 
                     />
                   </div>
                   <h3 className="footer-title" style={{ margin: 0 }}>VAIBHAVA <span>REALTY</span></h3>

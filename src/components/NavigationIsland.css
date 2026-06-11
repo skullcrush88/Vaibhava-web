@@ -69,6 +69,7 @@
   height: 100%;
   width: 100%;
   object-fit: contain;
+  transform: scale(1.15);
   transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
@@ -293,7 +294,18 @@
   
   /* Compact state on mobile when scrolled and menu closed */
   .nav-island-container.scrolled:not(.mobile-menu-active) {
-    max-width: 210px !important;
+    max-width: 230px !important;
+  }
+  
+  .nav-island-container.scrolled:not(.mobile-menu-active) .nav-island-inner {
+    padding: 0.5rem 1rem;
+    flex-wrap: nowrap;
+  }
+
+  .nav-island-container.scrolled:not(.mobile-menu-active) .nav-logo-wrapper {
+    height: 38px;
+    width: 38px;
+    padding: 2px;
   }
   
   .nav-island-container.scrolled:not(.mobile-menu-active) .brand-accent {

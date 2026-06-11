@@ -28,10 +28,6 @@ export default function AboutUs() {
                 <span className="about-stat-label">Legal Transparency</span>
               </div>
               <div className="about-stat-item">
-                <span className="about-stat-num">50+</span>
-                <span className="about-stat-label">Acres Managed</span>
-              </div>
-              <div className="about-stat-item">
                 <span className="about-stat-num">100%</span>
                 <span className="about-stat-label">Structural Integrity</span>
               </div>
