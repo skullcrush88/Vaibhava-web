@@ -340,10 +340,6 @@
     align-items: flex-start;
     width: 100%;
   }
-
-  .hero-title-main {
-    display: none !important;
-  }
   
   .hero-desc {
     font-size: 0.95rem;
