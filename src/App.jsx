@@ -62,25 +62,27 @@ export default function App() {
 
           <div className="content-wrapper">
             <div className="hero-text-box">
-              <h1>
-                <BlurText
-                  text="Vaibhava Realty."
-                  delay={120}
-                  animateBy="words"
-                  direction="bottom"
-                  style={{ width: '100%', color: 'var(--accent-gold)' }}
-                />
-                <BlurText
-                  text="Lands & Estates."
-                  delay={120}
-                  animateBy="words"
-                  direction="bottom"
-                  style={{ width: '100%', display: 'flex', flexWrap: 'wrap' }}
-                />
-              </h1>
-              <p className="hero-desc">
-                Building modern infrastructure, sustainable developments, and premium lands in Hyderabad. We design spaces that offer exceptional quality and value for future generations.
-              </p>
+              <div className="hero-header-group">
+                <h1>
+                  <BlurText
+                    text="Vaibhava Realty."
+                    delay={120}
+                    animateBy="words"
+                    direction="bottom"
+                    style={{ width: '100%', color: 'var(--accent-gold)' }}
+                  />
+                  <BlurText
+                    text="Lands & Estates."
+                    delay={120}
+                    animateBy="words"
+                    direction="bottom"
+                    style={{ width: '100%', display: 'flex', flexWrap: 'wrap' }}
+                  />
+                </h1>
+                <p className="hero-desc">
+                  Building modern infrastructure, sustainable developments, and premium lands in Hyderabad. We design spaces that offer exceptional quality and value for future generations.
+                </p>
+              </div>
 
               <div className="hero-ctas">
                 <a
