@@ -17,8 +17,29 @@
   --glass-bg: rgba(11, 12, 15, 0.65);
   --glass-blur: blur(24px);
   --glass-border: rgba(205, 162, 107, 0.12);
+  --glass-border-hover: rgba(255, 255, 255, 0.16);
   --glass-highlight: linear-gradient(135deg, rgba(205, 162, 107, 0.08) 0%, rgba(205, 162, 107, 0) 100%);
   
+  --nav-scrolled-bg: rgba(7, 8, 9, 0.92);
+  --nav-scrolled-hover-bg: rgba(11, 12, 15, 0.95);
+  --nav-hover-bg: rgba(15, 16, 18, 0.6);
+  
+  --vignette-color: rgba(8, 9, 10, 0.65);
+  --hero-fade-color: #08090a;
+  --hero-video-opacity: 0.55;
+  --footer-bg: #050607;
+  
+  --modal-bg: rgba(13, 15, 18, 0.85);
+  --modal-border: rgba(255, 255, 255, 0.08);
+  --option-bg: #121315;
+  
+  --input-bg: rgba(255, 255, 255, 0.03);
+  --input-border: rgba(255, 255, 255, 0.08);
+  --input-focus-bg: rgba(255, 255, 255, 0.06);
+  --input-focus-border: rgba(255, 255, 255, 0.25);
+  
+  --card-hover-bg: rgba(15, 16, 18, 0.55);
+
   /* Fonts */
   --font-sans: 'Outfit', sans-serif;
   --font-mono: 'JetBrains Mono', monospace;
@@ -26,6 +47,44 @@
   /* Transitions */
   --transition-smooth: all 0.6s cubic-bezier(0.16, 1, 0.3, 1);
   --transition-fast: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+:root.light-mode {
+  --bg-dark: #fcfbf9;
+  --bg-light: #070809;
+  --text-light: #070809;
+  --text-dark: #fcfbf9;
+  --text-muted: #58595b;
+  --text-muted-dark: #8d8f92;
+  
+  --border-technical: rgba(205, 162, 107, 0.22);
+  --border-technical-dark: rgba(252, 251, 249, 0.1);
+  --border-technical-strong: rgba(205, 162, 107, 0.45);
+  
+  --glass-bg: rgba(252, 251, 249, 0.82);
+  --glass-border: rgba(205, 162, 107, 0.22);
+  --glass-border-hover: rgba(205, 162, 107, 0.35);
+  --glass-highlight: linear-gradient(135deg, rgba(205, 162, 107, 0.06) 0%, rgba(205, 162, 107, 0) 100%);
+  
+  --nav-scrolled-bg: rgba(252, 251, 249, 0.92);
+  --nav-scrolled-hover-bg: rgba(245, 243, 239, 0.95);
+  --nav-hover-bg: rgba(245, 243, 239, 0.85);
+  
+  --vignette-color: rgba(252, 251, 249, 0.05);
+  --hero-fade-color: #fcfbf9;
+  --hero-video-opacity: 0.55;
+  --footer-bg: #f5f3ef;
+  
+  --modal-bg: rgba(252, 251, 249, 0.92);
+  --modal-border: rgba(205, 162, 107, 0.22);
+  --option-bg: #f5f3ef;
+  
+  --input-bg: rgba(7, 8, 9, 0.03);
+  --input-border: rgba(7, 8, 9, 0.08);
+  --input-focus-bg: rgba(7, 8, 9, 0.06);
+  --input-focus-border: rgba(7, 8, 9, 0.25);
+  
+  --card-hover-bg: rgba(252, 251, 249, 0.9);
 }
 
 /* CSS Resets & Setup */
@@ -45,6 +104,7 @@ html, body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-rendering: optimizeLegibility;
+  transition: background-color 0.4s ease, color 0.4s ease, border-color 0.4s ease;
 }
 
 /* Scrollbar customization */
@@ -127,8 +187,8 @@ html.lenis {
 }
 
 .glass-card:hover {
-  border-color: rgba(255, 255, 255, 0.16);
-  background: rgba(15, 16, 18, 0.55);
+  border-color: var(--glass-border-hover);
+  background: var(--card-hover-bg);
 }
 
 /* Monospace small details label */
@@ -180,7 +240,7 @@ a {
   align-items: center;
   gap: 0.5rem;
   background: var(--accent-gold);
-  color: var(--bg-dark);
+  color: #070809;
   border: none;
   padding: 0.75rem 1.75rem;
   border-radius: 40px;
@@ -193,6 +253,7 @@ a {
 
 .btn-primary:hover {
   background: var(--text-light);
+  color: var(--bg-dark);
   transform: translateY(-2px);
   box-shadow: 0 8px 24px rgba(205, 162, 107, 0.3);
 }

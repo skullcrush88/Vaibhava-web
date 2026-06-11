@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-import { Menu, X } from 'lucide-react';
+import { Menu, X, Sun, Moon } from 'lucide-react';
 import CareersModal from './CareersModal';
 import './NavigationIsland.css';
 
@@ -9,6 +9,26 @@ export default function NavigationIsland() {
   const [scrollPercent, setScrollPercent] = useState(0);
   const [menuOpen, setMenuOpen] = useState(false);
   const [isCareersOpen, setIsCareersOpen] = useState(false);
+  const [theme, setTheme] = useState(() => {
+    if (typeof window !== 'undefined') {
+      return localStorage.getItem('theme') || 'dark';
+    }
+    return 'dark';
+  });
+
+  useEffect(() => {
+    const root = document.documentElement;
+    if (theme === 'light') {
+      root.classList.add('light-mode');
+    } else {
+      root.classList.remove('light-mode');
+    }
+    localStorage.setItem('theme', theme);
+  }, [theme]);
+
+  const toggleTheme = () => {
+    setTheme((prev) => (prev === 'dark' ? 'light' : 'dark'));
+  };
 
   useEffect(() => {
     const handleScroll = () => {
@@ -105,6 +125,16 @@ export default function NavigationIsland() {
         {/* CTA booking button (desktop only) */}
         <button className="nav-action-btn desktop-cta" onClick={(e) => handleNavClick(e, 'inquire')}>
           Book Tour
+        </button>
+
+        {/* Theme Toggle Button */}
+        <button 
+          className="nav-theme-toggle" 
+          onClick={toggleTheme} 
+          aria-label="Toggle Theme"
+          data-cursor="theme"
+        >
+          {theme === 'dark' ? <Sun size={18} /> : <Moon size={18} />}
         </button>
 
         {/* Hamburger menu button for touch/mobile devices */}

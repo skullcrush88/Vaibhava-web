@@ -31,9 +31,9 @@
 
 /* Hover effect on standard container */
 .nav-island-inner:hover {
-  border-color: rgba(255, 255, 255, 0.16);
-  background: rgba(15, 16, 18, 0.6);
-  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.35);
+  border-color: var(--glass-border);
+  background: var(--nav-hover-bg);
+  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.2);
 }
 
 /* Brand styling */
@@ -152,7 +152,7 @@
 /* CTA Action Button */
 .nav-action-btn {
   background: var(--accent-gold);
-  color: var(--bg-dark);
+  color: #070809;
   font-family: var(--font-sans);
   font-size: 0.8rem;
   font-weight: 600;
@@ -166,6 +166,7 @@
 
 .nav-action-btn:hover {
   background: var(--text-light);
+  color: var(--bg-dark);
   transform: translateY(-2px);
   box-shadow: 0 4px 15px rgba(205, 162, 107, 0.35);
 }
@@ -194,7 +195,7 @@
 
 .nav-island-container.scrolled .nav-island-inner {
   padding: 0.5rem 1.25rem;
-  background: rgba(7, 8, 9, 0.92);
+  background: var(--nav-scrolled-bg);
   border-color: var(--border-technical-strong);
 }
 
@@ -218,7 +219,7 @@
 }
 
 .nav-island-container.scrolled.hovered .nav-island-inner {
-  background: rgba(11, 12, 15, 0.95);
+  background: var(--nav-scrolled-hover-bg);
   border-color: var(--border-technical-strong);
 }
 
@@ -233,6 +234,31 @@
 /* Scroll Direction Hide State */
 .nav-island-container.hidden {
   top: -5rem;
+}
+
+/* Theme Toggle Button Style */
+.nav-theme-toggle {
+  background: transparent;
+  border: 1px solid var(--border-technical);
+  color: var(--text-light);
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: var(--transition-smooth);
+  margin-left: 0.75rem;
+  padding: 0;
+  outline: none;
+}
+
+.nav-theme-toggle:hover {
+  border-color: var(--accent-gold);
+  color: var(--accent-gold);
+  background: rgba(205, 162, 107, 0.05);
+  transform: translateY(-1px);
 }
 
 /* Mobile Toggle & Menu Adaptations */
@@ -294,7 +320,7 @@
   
   /* Compact state on mobile when scrolled and menu closed */
   .nav-island-container.scrolled:not(.mobile-menu-active) {
-    max-width: 230px !important;
+    max-width: 250px !important;
   }
   
   .nav-island-container.scrolled:not(.mobile-menu-active) .nav-island-inner {
@@ -318,7 +344,7 @@
   
   .nav-links-list {
     display: none;
-    order: 3;
+    order: 4;
     flex-direction: column;
     width: 100%;
     max-width: 100% !important;
@@ -356,8 +382,14 @@
     letter-spacing: 0.1em;
   }
   
-  .nav-mobile-toggle {
+  .nav-theme-toggle {
     order: 2;
+    margin-left: auto;
+    margin-right: 0.5rem;
+  }
+  
+  .nav-mobile-toggle {
+    order: 3;
   }
 
   .nav-philosophy-link {

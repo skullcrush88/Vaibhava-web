@@ -6,7 +6,7 @@
   display: flex;
   align-items: center;
   overflow: hidden;
-  background-color: #08090a;
+  background-color: var(--bg-dark);
 }
 
 /* Background video */
@@ -17,7 +17,7 @@
   width: 100%;
   height: 100%;
   object-fit: cover;
-  opacity: 0.55;
+  opacity: var(--hero-video-opacity);
   pointer-events: none;
   z-index: 1;
   transform: translate3d(0, 0, 0);
@@ -28,10 +28,11 @@
 .hero-vignette {
   position: absolute;
   inset: 0;
-  background: radial-gradient(circle at center, transparent 40%, rgba(8, 9, 10, 0.65) 95%),
-              linear-gradient(to bottom, transparent 50%, #08090a 100%);
+  background: radial-gradient(circle at center, transparent 40%, var(--vignette-color) 95%),
+              linear-gradient(to bottom, transparent 50%, var(--hero-fade-color) 100%);
   z-index: 2;
   pointer-events: none;
+  transition: background 0.4s ease;
 }
 
 /* Text Content */
@@ -42,6 +43,11 @@
   flex-direction: column;
   gap: 2rem;
   max-width: 800px;
+  color: var(--text-light);
+}
+
+.hero-text-box h1 {
+  color: var(--text-light);
 }
 
 .hero-logo-box {
@@ -71,6 +77,8 @@
   font-weight: 300;
   max-width: 600px;
   line-height: 1.6;
+  color: var(--text-light);
+  opacity: 0.85;
 }
 
 .hero-ctas {
@@ -90,7 +98,8 @@
   font-family: var(--font-mono);
   font-size: 0.7rem;
   letter-spacing: 0.1em;
-  color: var(--text-muted);
+  color: var(--text-light);
+  opacity: 0.7;
 }
 
 .indicator-line-box {
@@ -128,16 +137,18 @@
   z-index: 3;
   font-family: var(--font-mono);
   font-size: 0.65rem;
-  color: var(--text-muted-dark);
+  color: var(--text-light);
+  opacity: 0.5;
 }
 
 /* Custom Footer styles */
 .expanding-footer {
   padding: 6rem 0 3rem 0;
-  background-color: #050607;
+  background-color: var(--footer-bg);
   border-top: 1px solid var(--border-technical);
   position: relative;
   z-index: 2;
+  transition: background-color 0.4s ease;
 }
 
 .footer-columns-grid {
@@ -263,7 +274,8 @@
 }
 
 .floating-btn.call-btn {
-  background: rgba(8, 9, 10, 0.7);
+  background: var(--glass-bg);
+  border-color: var(--glass-border);
   color: var(--text-light);
 }
 
