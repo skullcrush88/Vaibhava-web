@@ -5,15 +5,12 @@ import './NavigationIsland.css';
 
 export default function NavigationIsland() {
   const [scrolled, setScrolled] = useState(false);
-  const [hidden, setHidden] = useState(false);
   const [hovered, setHovered] = useState(false);
   const [scrollPercent, setScrollPercent] = useState(0);
   const [menuOpen, setMenuOpen] = useState(false);
   const [isCareersOpen, setIsCareersOpen] = useState(false);
 
   useEffect(() => {
-    let lastScrollY = window.scrollY;
-
     const handleScroll = () => {
       const currentScrollY = window.scrollY;
 
@@ -24,18 +21,7 @@ export default function NavigationIsland() {
         setScrolled(false);
       }
 
-      // 2. Scroll-direction hiding (hide on down scroll, reveal on up scroll)
-      // Only hide on scroll if mobile menu is closed and not on mobile screens
-      const isMobile = window.innerWidth <= 768;
-      if (currentScrollY > lastScrollY && currentScrollY > 180 && !menuOpen && !isMobile) {
-        setHidden(true);
-      } else {
-        setHidden(false);
-      }
-
-      lastScrollY = currentScrollY;
-
-      // 3. Scroll progress percentage
+      // 2. Scroll progress percentage
       const totalHeight = document.documentElement.scrollHeight - window.innerHeight;
       if (totalHeight > 0) {
         const progress = (currentScrollY / totalHeight) * 100;
@@ -45,7 +31,7 @@ export default function NavigationIsland() {
 
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
-  }, [menuOpen]);
+  }, []);
 
   const handleNavClick = (e, targetId) => {
     e.preventDefault();
@@ -58,7 +44,7 @@ export default function NavigationIsland() {
 
   return (
     <div
-      className={`nav-island-container ${scrolled ? 'scrolled' : ''} ${hidden ? 'hidden' : ''} ${hovered ? 'hovered' : ''} ${menuOpen ? 'mobile-menu-active' : ''}`}
+      className={`nav-island-container ${scrolled ? 'scrolled' : ''} ${hovered ? 'hovered' : ''} ${menuOpen ? 'mobile-menu-active' : ''}`}
       onMouseEnter={() => setHovered(true)}
       onMouseLeave={() => setHovered(false)}
     >
@@ -76,7 +62,10 @@ export default function NavigationIsland() {
               className="nav-logo"
             />
           </div>
-          <span>VAIBHAVA <span className="brand-accent">REALTY</span></span>
+          <div className="nav-brand-text">
+            <span className="brand-main">VAIBHAVA</span>
+            <span className="brand-accent">REALTY</span>
+          </div>
         </a>
 
         {/* Dynamic Links Menu */}

@@ -51,9 +51,9 @@
 }
 
 .nav-logo-wrapper {
-  height: 44px;
-  width: 44px;
-  border-radius: 50%;
+  height: 52px;
+  width: 52px;
+  border-radius: 2px;
   overflow: hidden;
   border: 1.5px solid var(--accent-gold);
   display: flex;
@@ -61,19 +61,37 @@
   justify-content: center;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
   transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+  padding: 4px;
+  background: rgba(0, 0, 0, 0.25);
 }
 
 .nav-logo {
   height: 100%;
   width: 100%;
-  object-fit: cover;
-  transform: scale(1.35); /* Zoom in content inside the mask */
+  object-fit: contain;
   transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
-.nav-brand span {
-  font-weight: 200;
-  color: var(--text-muted);
+.nav-brand-text {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  line-height: 1.15;
+  text-align: left;
+}
+
+.brand-main {
+  font-size: 0.95rem;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  color: var(--text-light);
+}
+
+.brand-accent {
+  font-size: 0.8rem;
+  font-weight: 400;
+  letter-spacing: 0.12em;
+  color: var(--accent-gold) !important;
 }
 
 /* Central Links List */
@@ -308,12 +326,22 @@
   
   .nav-brand {
     order: 1;
-    font-size: 0.85rem;
   }
 
   .nav-logo-wrapper {
-    height: 32px;
-    width: 32px;
+    height: 48px;
+    width: 48px;
+    padding: 3px;
+  }
+
+  .brand-main {
+    font-size: 0.85rem;
+    letter-spacing: 0.1em;
+  }
+
+  .brand-accent {
+    font-size: 0.72rem;
+    letter-spacing: 0.1em;
   }
   
   .nav-mobile-toggle {
