@@ -69,6 +69,7 @@ export default function App() {
                     delay={120}
                     animateBy="words"
                     direction="bottom"
+                    className="hero-title-main"
                     style={{ width: '100%', color: 'var(--accent-gold)' }}
                   />
                   <BlurText
