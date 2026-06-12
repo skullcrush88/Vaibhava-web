@@ -75,13 +75,6 @@ export default function NavigationIsland() {
           className="nav-brand" 
           onClick={(e) => handleNavClick(e, 'home')}
         >
-          <div className="nav-logo-wrapper">
-            <img 
-              src="/logo2.png" 
-              alt="Vaibhava Realty Logo" 
-              className="nav-logo"
-            />
-          </div>
           <div className="nav-brand-text">
             <span className="brand-main">VAIBHAVA</span>
             <span className="brand-accent">REALTY</span>
@@ -92,6 +85,9 @@ export default function NavigationIsland() {
         <ul className={`nav-links-list ${menuOpen ? 'mobile-open' : ''}`}>
           <li className="nav-link-item">
             <a href="#about" onClick={(e) => handleNavClick(e, 'about')}>About Us</a>
+          </li>
+          <li className="nav-link-item">
+            <a href="#projects" onClick={(e) => handleNavClick(e, 'projects')}>Projects</a>
           </li>
           <li className="nav-link-item">
             <a href="#promises" onClick={(e) => handleNavClick(e, 'promises')}>Promises</a>

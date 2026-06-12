@@ -1,5 +1,5 @@
-import { useState, useEffect } from 'react';
-import { ArrowRight, Globe, Layers, ShieldCheck, Phone, MessageCircle } from 'lucide-react';
+import { useState, useEffect, useRef } from 'react';
+import { ArrowRight, Globe, Layers, ShieldCheck, Phone, MessageCircle, MapPin, Building2, Sparkles, Calendar } from 'lucide-react';
 import './App.css';
 
 // Components
@@ -17,6 +17,9 @@ import FAQ from './components/FAQ';
 
 export default function App() {
   const [isMobile, setIsMobile] = useState(false);
+  const [activeVideo, setActiveVideo] = useState('logo'); // 'logo' or 'drone'
+  const logoVideoRef = useRef(null);
+  const droneVideoRef = useRef(null);
 
   useEffect(() => {
     const mediaQuery = window.matchMedia('(max-width: 768px)');
@@ -27,7 +30,33 @@ export default function App() {
     return () => mediaQuery.removeEventListener('change', handler);
   }, []);
 
-  const videoSrc = isMobile ? '/logovid.mp4' : '/drone.mp4';
+  useEffect(() => {
+    const playVideo = async () => {
+      try {
+        if (activeVideo === 'logo') {
+          if (droneVideoRef.current) {
+            droneVideoRef.current.pause();
+          }
+          if (logoVideoRef.current) {
+            logoVideoRef.current.currentTime = 0;
+            await logoVideoRef.current.play();
+          }
+        } else {
+          if (logoVideoRef.current) {
+            logoVideoRef.current.pause();
+          }
+          if (droneVideoRef.current) {
+            droneVideoRef.current.currentTime = 0;
+            await droneVideoRef.current.play();
+          }
+        }
+      } catch (err) {
+        console.warn('Video playback was prevented:', err);
+      }
+    };
+
+    playVideo();
+  }, [activeVideo]);
 
   const handleScrollTo = (e, targetId) => {
     e.preventDefault();
@@ -49,14 +78,22 @@ export default function App() {
         <header className="hero-section">
           {/* Loop Background Video Source */}
           <video
-            key={videoSrc}
-            className="hero-video-bg"
-            autoPlay
-            loop
+            ref={logoVideoRef}
+            className={`hero-video-bg ${activeVideo === 'logo' ? 'active' : 'inactive'}`}
             muted
             playsInline
             preload="auto"
-            src={videoSrc}
+            src={isMobile ? '/logovid.mp4' : '/logolaptop.mp4'}
+            onEnded={() => setActiveVideo('drone')}
+          />
+          <video
+            ref={droneVideoRef}
+            className={`hero-video-bg ${activeVideo === 'drone' ? 'active' : 'inactive'}`}
+            muted
+            playsInline
+            preload="auto"
+            src="/drone.mp4"
+            onEnded={() => setActiveVideo('logo')}
           />
           <div className="hero-vignette" />
 
@@ -69,14 +106,14 @@ export default function App() {
                     delay={120}
                     animateBy="words"
                     direction="bottom"
-                    style={{ width: '100%', color: 'var(--accent-gold)' }}
+                    style={{ width: '100%', color: 'var(--accent-gold)', flexWrap: 'nowrap' }}
                   />
                   <BlurText
                     text="Lands & Estates."
                     delay={120}
                     animateBy="words"
                     direction="bottom"
-                    style={{ width: '100%', display: 'flex', flexWrap: 'wrap' }}
+                    style={{ width: '100%', flexWrap: 'nowrap' }}
                   />
                 </h1>
                 <p className="hero-desc">
@@ -126,6 +163,37 @@ export default function App() {
           {/* 4. Corporate Commitments & Promises Section */}
           <Promises />
 
+          {/* Projects Section */}
+          <section className="projects-section" id="projects">
+            <div className="content-wrapper">
+              <div className="projects-header">
+                <span className="mono-label" style={{ color: 'var(--accent-gold)' }}>PORTFOLIO & VENTURES</span>
+                <h2 className="projects-heading">Featured Projects</h2>
+                <div className="projects-subtitle-wrapper">
+                  <p className="projects-subtitle">
+                    Explore our upcoming and active architectural developments in Hyderabad's premier zones.
+                  </p>
+                </div>
+              </div>
+
+              <div className="projects-grid">
+                <div className="coming-soon-card minimal-card">
+                  <div className="minimal-card-header">
+                    <span className="project-type">PORTFOLIO DEPLOYMENT</span>
+                    <h3 className="minimal-card-title">Coming Soon</h3>
+                  </div>
+                  <p className="minimal-card-desc">
+                    We are structuring our portfolio of premium lands, residential estates, and architectural developments in Hyderabad's high-growth corridors. Details will be unveiled shortly.
+                  </p>
+                  <div className="minimal-card-footer">
+                    <span className="pulsing-indicator-dot" />
+                    <span>REGISTRATIONS OPENING SOON</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </section>
+
           {/* 6. FAQ Section */}
           <FAQ />
 
@@ -139,14 +207,7 @@ export default function App() {
             <div className="footer-columns-grid">
 
               <div className="footer-brand-col">
-                <div style={{ display: 'flex', alignItems: 'center', gap: '0.75rem', marginBottom: '1rem' }}>
-                  <div style={{ height: '64px', width: '64px', borderRadius: '2px', overflow: 'hidden', border: '1.5px solid var(--accent-gold)', display: 'flex', alignItems: 'center', justifyContent: 'center', flexShrink: 0, padding: '4px', background: 'rgba(0, 0, 0, 0.25)' }}>
-                    <img 
-                      src="/logo2.png" 
-                      alt="Vaibhava Realty Logo" 
-                      style={{ height: '100%', width: '100%', objectFit: 'contain', transform: 'scale(1.15)' }} 
-                    />
-                  </div>
+                <div style={{ display: 'flex', alignItems: 'center', gap: '0.75rem', marginBottom: '1.5rem' }}>
                   <h3 className="footer-title" style={{ margin: 0 }}>VAIBHAVA <span>REALTY</span></h3>
                 </div>
                 <p className="footer-tagline">
