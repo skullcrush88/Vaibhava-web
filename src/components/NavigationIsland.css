@@ -367,9 +367,7 @@
   }
 
   .nav-logo-wrapper {
-    height: 48px;
-    width: 48px;
-    padding: 3px;
+    display: none !important;
   }
 
   .brand-main {
