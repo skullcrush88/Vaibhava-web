@@ -56,7 +56,7 @@ export default function App() {
     };
 
     playVideo();
-  }, [activeVideo]);
+  }, [activeVideo, isMobile]);
 
   const handleScrollTo = (e, targetId) => {
     e.preventDefault();
@@ -78,8 +78,10 @@ export default function App() {
         <header className="hero-section">
           {/* Loop Background Video Source */}
           <video
+            key={isMobile ? 'logo-mobile' : 'logo-laptop'}
             ref={logoVideoRef}
             className={`hero-video-bg ${activeVideo === 'logo' ? 'active' : 'inactive'}`}
+            autoPlay={activeVideo === 'logo'}
             muted
             playsInline
             preload="auto"
@@ -87,8 +89,10 @@ export default function App() {
             onEnded={() => setActiveVideo('drone')}
           />
           <video
+            key="drone-video"
             ref={droneVideoRef}
             className={`hero-video-bg ${activeVideo === 'drone' ? 'active' : 'inactive'}`}
+            autoPlay={activeVideo === 'drone'}
             muted
             playsInline
             preload="auto"
