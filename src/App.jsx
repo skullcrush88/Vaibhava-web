@@ -14,6 +14,7 @@ import BlurText from './components/BlurText';
 import CustomCursor from './components/CustomCursor';
 import AboutUs from './components/AboutUs';
 import FAQ from './components/FAQ';
+import Services from './components/Services';
 
 export default function App() {
   const [isMobile, setIsMobile] = useState(false);
@@ -127,20 +128,20 @@ export default function App() {
 
               <div className="hero-ctas">
                 <a
-                  href="#showcase"
+                  href="#projects"
                   className="btn-primary"
-                  onClick={(e) => handleScrollTo(e, 'showcase')}
-                  data-cursor="explore"
+                  onClick={(e) => handleScrollTo(e, 'projects')}
+                  data-cursor="buy"
                 >
-                  Explore Portfolio <ArrowRight size={16} />
+                  Buy Properties <ArrowRight size={16} />
                 </a>
                 <a
-                  href="#vision"
+                  href="#inquire"
                   className="btn-secondary"
-                  onClick={(e) => handleScrollTo(e, 'vision')}
-                  data-cursor="philosophy"
+                  onClick={(e) => handleScrollTo(e, 'inquire')}
+                  data-cursor="sell"
                 >
-                  Our Philosophy
+                  Sell / List Properties
                 </a>
               </div>
             </div>
@@ -158,6 +159,9 @@ export default function App() {
         <main>
           {/* About Us Section */}
           <AboutUs />
+
+          {/* Services Section */}
+          <Services />
 
           <HorizontalScrollShowcase />
 
@@ -180,19 +184,36 @@ export default function App() {
                 </div>
               </div>
 
-              <div className="projects-grid">
-                <div className="coming-soon-card minimal-card">
-                  <div className="minimal-card-header">
-                    <span className="project-type">PORTFOLIO DEPLOYMENT</span>
-                    <h3 className="minimal-card-title">Coming Soon</h3>
-                  </div>
-                  <p className="minimal-card-desc">
-                    We are structuring our portfolio of premium lands, residential estates, and architectural developments in Hyderabad's high-growth corridors. Details will be unveiled shortly.
-                  </p>
-                  <div className="minimal-card-footer">
-                    <span className="pulsing-indicator-dot" />
-                    <span>REGISTRATIONS OPENING SOON</span>
-                  </div>
+              {/* Category 1: Ongoing Ventures */}
+              <div className="projects-sub-section" id="projects-ventures">
+                <div className="sub-section-title-box">
+                  <h3>Ongoing Ventures</h3>
+                  <div className="sub-section-line" />
+                </div>
+                <div className="projects-grid">
+                  {/* Details will be updated soon */}
+                </div>
+              </div>
+
+              {/* Category 2: Ongoing Projects */}
+              <div className="projects-sub-section" id="projects-ongoing">
+                <div className="sub-section-title-box">
+                  <h3>Ongoing Projects</h3>
+                  <div className="sub-section-line" />
+                </div>
+                <div className="projects-grid">
+                  {/* Details will be updated soon */}
+                </div>
+              </div>
+
+              {/* Category 3: Completed Projects */}
+              <div className="projects-sub-section" id="projects-completed">
+                <div className="sub-section-title-box">
+                  <h3>Completed Projects</h3>
+                  <div className="sub-section-line" />
+                </div>
+                <div className="projects-grid">
+                  {/* Details will be updated soon */}
                 </div>
               </div>
             </div>

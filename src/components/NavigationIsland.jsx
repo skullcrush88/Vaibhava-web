@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-import { Menu, X, Sun, Moon } from 'lucide-react';
+import { Menu, X, ChevronDown } from 'lucide-react';
 import CareersModal from './CareersModal';
 import './NavigationIsland.css';
 
@@ -9,26 +9,17 @@ export default function NavigationIsland() {
   const [scrollPercent, setScrollPercent] = useState(0);
   const [menuOpen, setMenuOpen] = useState(false);
   const [isCareersOpen, setIsCareersOpen] = useState(false);
-  const [theme, setTheme] = useState(() => {
-    if (typeof window !== 'undefined') {
-      return localStorage.getItem('theme') || 'dark';
-    }
-    return 'dark';
-  });
+  const [dropdownOpen, setDropdownOpen] = useState(false);
+  const [isMobile, setIsMobile] = useState(false);
 
   useEffect(() => {
-    const root = document.documentElement;
-    if (theme === 'light') {
-      root.classList.add('light-mode');
-    } else {
-      root.classList.remove('light-mode');
-    }
-    localStorage.setItem('theme', theme);
-  }, [theme]);
-
-  const toggleTheme = () => {
-    setTheme((prev) => (prev === 'dark' ? 'light' : 'dark'));
-  };
+    const checkMobile = () => {
+      setIsMobile(window.innerWidth <= 768);
+    };
+    checkMobile();
+    window.addEventListener('resize', checkMobile);
+    return () => window.removeEventListener('resize', checkMobile);
+  }, []);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -56,6 +47,7 @@ export default function NavigationIsland() {
   const handleNavClick = (e, targetId) => {
     e.preventDefault();
     setMenuOpen(false);
+    setDropdownOpen(false);
     const element = document.getElementById(targetId);
     if (element) {
       element.scrollIntoView({ behavior: 'smooth' });
@@ -66,7 +58,10 @@ export default function NavigationIsland() {
     <div
       className={`nav-island-container ${scrolled ? 'scrolled' : ''} ${hovered ? 'hovered' : ''} ${menuOpen ? 'mobile-menu-active' : ''}`}
       onMouseEnter={() => setHovered(true)}
-      onMouseLeave={() => setHovered(false)}
+      onMouseLeave={() => {
+        setHovered(false);
+        setDropdownOpen(false);
+      }}
     >
       <nav className="nav-island-inner">
         {/* Brand Logo */}
@@ -86,9 +81,46 @@ export default function NavigationIsland() {
           <li className="nav-link-item">
             <a href="#about" onClick={(e) => handleNavClick(e, 'about')}>About Us</a>
           </li>
-          <li className="nav-link-item">
-            <a href="#projects" onClick={(e) => handleNavClick(e, 'projects')}>Projects</a>
+          
+          {/* Projects Dropdown Menu */}
+          <li 
+            className={`nav-link-item dropdown-item ${dropdownOpen ? 'dropdown-active' : ''}`}
+            onMouseEnter={() => !isMobile && setDropdownOpen(true)}
+            onMouseLeave={() => !isMobile && setDropdownOpen(false)}
+          >
+            <a 
+              href="#projects" 
+              className="dropdown-toggle-link"
+              onClick={(e) => {
+                if (isMobile) {
+                  e.preventDefault();
+                  setDropdownOpen(!dropdownOpen);
+                } else {
+                  handleNavClick(e, 'projects');
+                }
+              }}
+            >
+              Projects <ChevronDown size={12} className={`dropdown-arrow-icon ${dropdownOpen ? 'rotated' : ''}`} />
+            </a>
+            <ul className={`dropdown-sub-menu ${dropdownOpen ? 'open' : ''}`}>
+              <li>
+                <a href="#projects-ventures" onClick={(e) => handleNavClick(e, 'projects-ventures')}>
+                  Ongoing Ventures
+                </a>
+              </li>
+              <li>
+                <a href="#projects-ongoing" onClick={(e) => handleNavClick(e, 'projects-ongoing')}>
+                  Ongoing Projects
+                </a>
+              </li>
+              <li>
+                <a href="#projects-completed" onClick={(e) => handleNavClick(e, 'projects-completed')}>
+                  Completed Projects
+                </a>
+              </li>
+            </ul>
           </li>
+
           <li className="nav-link-item">
             <a href="#promises" onClick={(e) => handleNavClick(e, 'promises')}>Promises</a>
           </li>
@@ -121,16 +153,6 @@ export default function NavigationIsland() {
         {/* CTA booking button (desktop only) */}
         <button className="nav-action-btn desktop-cta" onClick={(e) => handleNavClick(e, 'inquire')}>
           Book Tour
-        </button>
-
-        {/* Theme Toggle Button */}
-        <button 
-          className="nav-theme-toggle" 
-          onClick={toggleTheme} 
-          aria-label="Toggle Theme"
-          data-cursor="theme"
-        >
-          {theme === 'dark' ? <Sun size={18} /> : <Moon size={18} />}
         </button>
 
         {/* Hamburger menu button for touch/mobile devices */}

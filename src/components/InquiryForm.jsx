@@ -6,6 +6,7 @@ export default function InquiryForm() {
   const [formData, setFormData] = useState({
     name: '',
     email: '',
+    purpose: 'BUY',
     category: 'RESIDENTIAL',
     message: ''
   });
@@ -77,7 +78,7 @@ export default function InquiryForm() {
               </div>
               <div className="contact-detail-item">
                 <span className="lbl">Office Hours</span>
-                <span className="val">Mon to Sat, 10:00 AM to 6:30 PM</span>
+                <span className="val">Mon to Sat, 10:00 AM to 7:00 PM</span>
               </div>
               <div className="contact-detail-item">
                 <span className="lbl">Registered Office</span>
@@ -139,6 +140,21 @@ export default function InquiryForm() {
                   />
                 </div>
 
+                 <div className="form-input-group">
+                  <label htmlFor="purpose">I am looking to</label>
+                  <select
+                    id="purpose"
+                    name="purpose"
+                    value={formData.purpose}
+                    onChange={handleInputChange}
+                    className="form-select-input"
+                  >
+                    <option value="BUY">Buy / Invest</option>
+                    <option value="SELL">Sell / List Property</option>
+                    <option value="LEASE">Lease / Rent</option>
+                  </select>
+                </div>
+
                 <div className="form-input-group">
                   <label htmlFor="category">Inquiry Scope</label>
                   <select
@@ -151,6 +167,9 @@ export default function InquiryForm() {
                     <option value="RESIDENTIAL">Luxury Residential Estate</option>
                     <option value="COMMERCIAL">High-End Commercial Hub</option>
                     <option value="PLOTTING">Plotting Ventures / Land</option>
+                    <option value="OFFICE_SPACES">Office Spaces</option>
+                    <option value="MEETING_ROOMS">Meeting Rooms</option>
+                    <option value="COWORKING">Co-working Spaces</option>
                   </select>
                 </div>
 

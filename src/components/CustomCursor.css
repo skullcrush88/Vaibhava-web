@@ -4,18 +4,20 @@
   left: 0;
   width: 36px;
   height: 36px;
-  border: 1px solid var(--accent-gold);
+  border: 1.5px solid rgba(var(--accent-gold-rgb), 0.25);
   border-radius: 50%;
   pointer-events: none;
   z-index: 9999;
-  transform: translate(-50%, -50%);
   display: flex;
   align-items: center;
   justify-content: center;
-  transition: width 0.25s cubic-bezier(0.16, 1, 0.3, 1),
-              height 0.25s cubic-bezier(0.16, 1, 0.3, 1),
-              background-color 0.25s cubic-bezier(0.16, 1, 0.3, 1),
-              border-color 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+  background: radial-gradient(circle, rgba(var(--accent-gold-rgb), 0.08) 0%, rgba(var(--accent-gold-rgb), 0) 70%);
+  box-shadow: 0 0 10px rgba(var(--accent-gold-rgb), 0.05);
+  transition: width 0.3s cubic-bezier(0.16, 1, 0.3, 1),
+              height 0.3s cubic-bezier(0.16, 1, 0.3, 1),
+              background 0.3s cubic-bezier(0.16, 1, 0.3, 1),
+              border-color 0.3s cubic-bezier(0.16, 1, 0.3, 1),
+              box-shadow 0.3s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 .custom-cursor-dot {
@@ -28,33 +30,40 @@
   border-radius: 50%;
   pointer-events: none;
   z-index: 10000;
-  transform: translate(-50%, -50%);
-  transition: transform 0.1s ease,
-              width 0.2s ease,
-              height 0.2s ease,
-              background-color 0.2s ease;
+  box-shadow: 0 0 8px rgba(var(--accent-gold-rgb), 0.4);
+  transition: width 0.25s cubic-bezier(0.16, 1, 0.3, 1),
+              height 0.25s cubic-bezier(0.16, 1, 0.3, 1),
+              background-color 0.25s cubic-bezier(0.16, 1, 0.3, 1),
+              opacity 0.25s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 /* Hover over interactive elements */
 .custom-cursor-ring.pointer {
-  width: 50px;
-  height: 50px;
-  border-color: var(--text-light);
-  background-color: rgba(205, 162, 107, 0.08);
+  width: 54px;
+  height: 54px;
+  border-color: rgba(var(--accent-gold-rgb), 0.85);
+  background: radial-gradient(circle, rgba(var(--accent-gold-rgb), 0.16) 0%, rgba(var(--accent-gold-rgb), 0.02) 85%);
+  backdrop-filter: blur(4px);
+  -webkit-backdrop-filter: blur(4px);
+  box-shadow: 0 0 18px rgba(var(--accent-gold-rgb), 0.25);
 }
 
 .custom-cursor-dot.pointer {
   width: 4px;
   height: 4px;
-  background-color: var(--text-light);
+  background-color: var(--accent-gold);
+  opacity: 0.6;
 }
 
 /* Hover over special elements with data-cursor labels */
 .custom-cursor-ring.text {
-  width: 64px;
-  height: 64px;
-  background-color: var(--accent-gold);
-  border-color: var(--accent-gold);
+  width: 76px;
+  height: 76px;
+  background: linear-gradient(135deg, var(--accent-gold) 0%, #ecd0a5 100%);
+  border-color: transparent;
+  box-shadow: 0 8px 24px rgba(var(--accent-gold-rgb), 0.35);
+  backdrop-filter: none;
+  -webkit-backdrop-filter: none;
 }
 
 .custom-cursor-dot.text {
@@ -64,16 +73,28 @@
 .custom-cursor-label {
   font-family: var(--font-mono);
   font-size: 0.65rem;
-  font-weight: 600;
-  color: var(--bg-dark);
+  font-weight: 700;
+  color: #070809 !important; /* Keep dark obsidian for legibility on gold background in both themes */
   text-transform: uppercase;
-  letter-spacing: 0.05em;
+  letter-spacing: 0.1em;
   pointer-events: none;
+  animation: fadeIn 0.2s ease-out forwards;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: scale(0.9);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
 }
 
 /* Hide default cursor on desktop when custom cursor is active */
 @media (pointer: fine) {
-  a, button, select, input, textarea, [data-cursor] {
+  a, button, select, input, textarea, [data-cursor], .clickable {
     cursor: none !important;
   }
   
@@ -81,3 +102,4 @@
     cursor: none !important;
   }
 }
+

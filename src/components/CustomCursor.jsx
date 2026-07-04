@@ -5,6 +5,7 @@ import './CustomCursor.css';
 export default function CustomCursor() {
   const [cursorType, setCursorType] = useState('default');
   const [cursorText, setCursorText] = useState('');
+  const [isClicked, setIsClicked] = useState(false);
   const [isVisible, setIsVisible] = useState(() => {
     if (typeof window === 'undefined') return false;
     return !window.matchMedia('(pointer: coarse)').matches;
@@ -14,7 +15,8 @@ export default function CustomCursor() {
   const cursorX = useMotionValue(-100);
   const cursorY = useMotionValue(-100);
 
-  const springConfig = { damping: 30, stiffness: 250, mass: 0.5 };
+  // Optimized spring config for fluid, organic trailing
+  const springConfig = { damping: 35, stiffness: 350, mass: 0.4 };
   const cursorXSpring = useSpring(cursorX, springConfig);
   const cursorYSpring = useSpring(cursorY, springConfig);
 
@@ -46,17 +48,23 @@ export default function CustomCursor() {
       }
     };
 
+    const handleMouseDown = () => setIsClicked(true);
+    const handleMouseUp = () => setIsClicked(false);
     const handleMouseLeaveWindow = () => setIsVisible(false);
     const handleMouseEnterWindow = () => setIsVisible(true);
 
     window.addEventListener('mousemove', handleMouseMove);
     window.addEventListener('mouseover', handleMouseOver);
+    window.addEventListener('mousedown', handleMouseDown);
+    window.addEventListener('mouseup', handleMouseUp);
     document.addEventListener('mouseleave', handleMouseLeaveWindow);
     document.addEventListener('mouseenter', handleMouseEnterWindow);
 
     return () => {
       window.removeEventListener('mousemove', handleMouseMove);
       window.removeEventListener('mouseover', handleMouseOver);
+      window.removeEventListener('mousedown', handleMouseDown);
+      window.removeEventListener('mouseup', handleMouseUp);
       document.removeEventListener('mouseleave', handleMouseLeaveWindow);
       document.removeEventListener('mouseenter', handleMouseEnterWindow);
     };
@@ -72,7 +80,13 @@ export default function CustomCursor() {
         style={{
           x: cursorXSpring,
           y: cursorYSpring,
+          translateX: '-50%',
+          translateY: '-50%',
         }}
+        animate={{
+          scale: isClicked ? 0.8 : 1,
+        }}
+        transition={{ type: 'spring', stiffness: 500, damping: 25 }}
       >
         {cursorType === 'text' && (
           <span className="custom-cursor-label">{cursorText}</span>
@@ -85,8 +99,15 @@ export default function CustomCursor() {
         style={{
           x: cursorX,
           y: cursorY,
+          translateX: '-50%',
+          translateY: '-50%',
         }}
+        animate={{
+          scale: isClicked ? 1.4 : 1,
+        }}
+        transition={{ type: 'spring', stiffness: 450, damping: 20 }}
       />
     </>
   );
 }
+
