@@ -1,13 +1,15 @@
 /* Navigation Island Floating Shell */
 .nav-island-container {
   position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  max-width: 100% !important;
-  transform: none !important;
+  top: 1.5rem;
+  left: 50%;
+  transform: translateX(-50%);
   z-index: 100;
-  transition: background-color 0.4s ease;
+  width: 90%;
+  max-width: 880px;
+  transition: max-width 0.6s cubic-bezier(0.16, 1, 0.3, 1),
+    top 0.6s cubic-bezier(0.16, 1, 0.3, 1),
+    background-color 0.4s ease;
 }
 
 .nav-island-inner {
@@ -15,15 +17,15 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 1rem 4vw;
-  border-radius: 0 !important;
-  background: var(--bg-dark);
+  padding: 0.6rem 1.75rem;
+  border-radius: 40px;
+  background: var(--glass-bg);
   backdrop-filter: var(--glass-blur);
   -webkit-backdrop-filter: var(--glass-blur);
-  border: none !important;
-  border-bottom: 1.5px solid var(--border-technical) !important;
-  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.02);
-  transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+  border: 1px solid var(--glass-border);
+  background-image: var(--glass-highlight);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+  transition: all 0.6s cubic-bezier(0.16, 1, 0.3, 1);
   overflow: visible;
 }
 
@@ -185,14 +187,48 @@
   transition: width 0.1s ease-out;
 }
 
-/* Scrolled State */
+/* Scrolled Compact State */
 .nav-island-container.scrolled {
-  top: 0;
+  max-width: 400px;
+  top: 1rem;
 }
 
 .nav-island-container.scrolled .nav-island-inner {
-  padding: 0.75rem 4vw;
+  padding: 0.5rem 1.25rem;
   background: var(--nav-scrolled-bg);
+  border-color: var(--border-technical-strong);
+}
+
+.nav-island-container.scrolled .nav-links-list {
+  opacity: 0;
+  max-width: 0;
+  transform: scale(0.9);
+  pointer-events: none;
+  overflow: hidden;
+  margin: 0;
+  gap: 0;
+}
+
+.nav-island-container.scrolled .nav-brand {
+  font-size: 0.85rem;
+}
+
+/* Hover Expanded Scrolled State */
+.nav-island-container.scrolled.hovered {
+  max-width: 880px;
+}
+
+.nav-island-container.scrolled.hovered .nav-island-inner {
+  background: var(--nav-scrolled-hover-bg);
+  border-color: var(--border-technical-strong);
+}
+
+.nav-island-container.scrolled.hovered .nav-links-list {
+  opacity: 1;
+  max-width: 550px;
+  transform: scale(1);
+  pointer-events: auto;
+  gap: 1.5rem;
 }
 
 /* Scroll Direction Hide State */
@@ -295,23 +331,9 @@
   
   .mobile-cta-item .nav-action-btn {
     width: 100%;
-    max-width: 280px;
     justify-content: center;
-    padding: 0.85rem;
-    font-size: 0.95rem;
-    font-weight: 600;
-    border-radius: 40px !important;
-    background: var(--accent-gold) !important;
-    color: #070809 !important;
-    box-shadow: 0 4px 15px rgba(205, 162, 107, 0.15) !important;
-    margin: 0.5rem auto 0 auto;
-    display: flex;
-    border: none !important;
-  }
-
-  .mobile-cta-item .nav-action-btn:hover {
-    background: var(--accent-gold-hover) !important;
-    transform: translateY(-1px);
+    padding: 0.75rem;
+    font-size: 0.9rem;
   }
 
   .nav-mobile-toggle {
@@ -337,15 +359,27 @@
   }
   
   .nav-island-container {
-    width: 100% !important;
-    max-width: 100% !important;
-    top: 0 !important;
-    left: 0 !important;
-    transform: none !important;
+    width: 92%;
+    max-width: 480px;
+    transition: max-width 0.4s cubic-bezier(0.16, 1, 0.3, 1),
+                top 0.4s cubic-bezier(0.16, 1, 0.3, 1),
+                height 0.4s ease;
+  }
+  
+  /* Compact state on mobile when scrolled and menu closed */
+  .nav-island-container.scrolled:not(.mobile-menu-active) {
+    max-width: 250px !important;
+  }
+  
+  .nav-island-container.scrolled:not(.mobile-menu-active) .nav-island-inner {
+    padding: 0.5rem 1rem;
+    flex-wrap: nowrap;
   }
 
-  .nav-island-container.scrolled .nav-island-inner {
-    padding: 0.75rem 1.5rem !important;
+  .nav-island-container.scrolled:not(.mobile-menu-active) .nav-logo-wrapper {
+    height: 38px;
+    width: 38px;
+    padding: 2px;
   }
   
   .nav-island-container.scrolled:not(.mobile-menu-active) .brand-accent {
@@ -353,8 +387,7 @@
   }
   
   .nav-island-container.mobile-menu-active {
-    width: 100% !important;
-    max-width: 100% !important;
+    max-width: 92% !important;
   }
   
   .nav-links-list {
@@ -363,23 +396,13 @@
     flex-direction: column;
     width: 100%;
     max-width: 100% !important;
-    gap: 1.6rem;
-    padding: 1.75rem 0 1.5rem 0;
+    gap: 1.25rem;
+    padding: 1.5rem 0 0.5rem 0;
     margin-top: 1rem;
-    border-top: 1.5px solid var(--border-technical);
+    border-top: 1px solid var(--border-technical);
     align-items: center;
     opacity: 1 !important;
     transform: none !important;
-  }
-
-  .nav-links-list li a {
-    font-size: 1.05rem !important;
-    font-weight: 500 !important;
-    color: #4a4a4a !important;
-  }
-
-  .nav-links-list li a:hover {
-    color: var(--accent-gold) !important;
   }
   
   .nav-links-list.mobile-open {
