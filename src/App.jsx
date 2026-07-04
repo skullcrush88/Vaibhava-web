@@ -160,9 +160,6 @@ export default function App() {
           {/* About Us Section */}
           <AboutUs />
 
-          {/* Services Section */}
-          <Services />
-
           <HorizontalScrollShowcase />
 
           {/* 3. Mask Wipe Section */}
@@ -221,6 +218,9 @@ export default function App() {
 
           {/* 6. FAQ Section */}
           <FAQ />
+
+          {/* Services Section */}
+          <Services />
 
           {/* 7. Inquiry Form Section */}
           <InquiryForm />
