@@ -100,33 +100,39 @@
 .hero-ctas {
   display: flex;
   gap: 1.25rem;
-  margin-top: -1.25rem;
+  margin-top: -0.25rem;
+  align-items: center;
 }
 
 .hero-ctas .btn-primary.hero-btn-buy {
-  background-color: #c53030;
-  color: #ffffff;
-  border-radius: 4px;
-  border: 1px solid #b71c1c;
+  background: var(--accent-gold);
+  color: var(--bg-light);
+  border: 1px solid var(--accent-gold);
+  border-radius: 40px;
+  box-shadow: 0 4px 15px rgba(205, 162, 107, 0.15);
 }
 
 .hero-ctas .btn-primary.hero-btn-buy:hover {
-  background-color: #9b2c2c;
-  border-color: #7f1d1d;
-  color: #ffffff;
+  background: var(--text-light);
+  border-color: var(--text-light);
+  color: var(--bg-dark);
   transform: translateY(-2px);
-  box-shadow: 0 8px 24px rgba(197, 48, 48, 0.4);
+  box-shadow: 0 8px 24px rgba(205, 162, 107, 0.35);
 }
 
-.hero-ctas .btn-secondary.hero-btn-sell {
-  border-radius: 4px;
+.hero-ctas .btn-secondary {
+  border-radius: 40px;
   border: 1px solid var(--border-technical-strong);
+  background: transparent;
+  color: var(--text-light);
 }
 
-.hero-ctas .btn-secondary.hero-btn-sell:hover {
-  background: rgba(205, 162, 107, 0.1);
+.hero-ctas .btn-secondary:hover {
+  background: rgba(205, 162, 107, 0.08);
   border-color: var(--accent-gold);
-  color: var(--accent-gold);
+  color: var(--accent-gold-hover);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 24px rgba(205, 162, 107, 0.1);
 }
 
 /* Floating Scroll Indicator */
@@ -367,7 +373,7 @@
     height: 100dvh;
     align-items: stretch;
     padding-top: 7rem;
-    padding-bottom: 9.5rem;
+    padding-bottom: 8.25rem;
   }
 
   .hero-section .content-wrapper {
@@ -427,8 +433,8 @@
     flex: 1;
     max-width: 160px;
     justify-content: center;
-    padding: 0.75rem 1rem;
-    font-size: 0.825rem;
+    padding: 0.85rem 1.25rem;
+    font-size: 0.875rem;
     text-align: center;
   }
 
