@@ -353,41 +353,54 @@
     color: var(--accent-gold);
   }
   
-  .nav-island-inner {
-    flex-wrap: wrap;
-    padding: 0.8rem 1.5rem;
-  }
-  
   .nav-island-container {
-    width: 92%;
-    max-width: 480px;
-    transition: max-width 0.4s cubic-bezier(0.16, 1, 0.3, 1),
-                top 0.4s cubic-bezier(0.16, 1, 0.3, 1),
-                height 0.4s ease;
-  }
-  
-  /* Compact state on mobile when scrolled and menu closed */
-  .nav-island-container.scrolled:not(.mobile-menu-active) {
-    max-width: 250px !important;
-  }
-  
-  .nav-island-container.scrolled:not(.mobile-menu-active) .nav-island-inner {
-    padding: 0.5rem 1rem;
-    flex-wrap: nowrap;
+    top: 0 !important;
+    left: 0 !important;
+    transform: none !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    position: fixed;
+    transition: none;
   }
 
-  .nav-island-container.scrolled:not(.mobile-menu-active) .nav-logo-wrapper {
-    height: 38px;
-    width: 38px;
-    padding: 2px;
+  .nav-island-inner {
+    border-radius: 0 !important;
+    border-left: none !important;
+    border-right: none !important;
+    border-top: none !important;
+    border-bottom: 1px solid var(--border-technical) !important;
+    background: rgba(252, 251, 249, 0.95) !important;
+    padding: 1rem 1.5rem !important;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.03) !important;
+    flex-wrap: wrap;
   }
-  
+
+  /* Disable scrolled compact state on mobile */
+  .nav-island-container.scrolled {
+    max-width: 100% !important;
+    top: 0 !important;
+  }
+
+  .nav-island-container.scrolled .nav-island-inner {
+    padding: 1rem 1.5rem !important;
+    background: rgba(252, 251, 249, 0.95) !important;
+  }
+
+  .nav-island-container.scrolled:not(.mobile-menu-active) {
+    max-width: 100% !important;
+  }
+
+  .nav-island-container.scrolled:not(.mobile-menu-active) .nav-island-inner {
+    padding: 1rem 1.5rem !important;
+    flex-wrap: wrap !important;
+  }
+
   .nav-island-container.scrolled:not(.mobile-menu-active) .brand-accent {
-    display: none !important;
+    display: block !important;
   }
   
   .nav-island-container.mobile-menu-active {
-    max-width: 92% !important;
+    max-width: 100% !important;
   }
   
   .nav-links-list {

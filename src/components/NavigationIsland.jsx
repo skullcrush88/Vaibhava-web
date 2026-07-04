@@ -70,6 +70,9 @@ export default function NavigationIsland() {
           className="nav-brand" 
           onClick={(e) => handleNavClick(e, 'home')}
         >
+          <svg className="nav-brand-emblem" viewBox="0 0 24 24" width="26" height="26" fill="none" stroke="currentColor" strokeWidth="1.5" style={{ color: 'var(--accent-gold)' }}>
+            <path d="M4 20V8l4-3v15M10 20V5l4-3v18M16 20V10l4-3v13" strokeLinecap="round" strokeLinejoin="round" />
+          </svg>
           <div className="nav-brand-text">
             <span className="brand-main">VAIBHAVA</span>
             <span className="brand-accent">REALTY</span>
