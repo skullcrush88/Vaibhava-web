@@ -45,8 +45,7 @@
 .hero-vignette {
   position: absolute;
   inset: 0;
-  background: radial-gradient(circle at center, transparent 40%, var(--vignette-color) 95%),
-              linear-gradient(to bottom, transparent 50%, var(--hero-fade-color) 100%);
+  background: radial-gradient(circle at center, transparent 40%, var(--vignette-color) 95%);
   z-index: 2;
   pointer-events: none;
   transition: background 0.4s ease;
