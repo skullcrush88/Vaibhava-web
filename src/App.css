@@ -105,23 +105,23 @@
 }
 
 .hero-ctas .btn-primary.hero-btn-buy {
-  background: var(--accent-gold);
-  color: var(--bg-light);
-  border: 1px solid var(--accent-gold);
-  border-radius: 40px;
-  box-shadow: 0 4px 15px rgba(205, 162, 107, 0.15);
+  background: #c53030;
+  color: #ffffff;
+  border: 1px solid #b71c1c;
+  border-radius: 6px;
+  box-shadow: 0 4px 15px rgba(197, 48, 48, 0.15);
 }
 
 .hero-ctas .btn-primary.hero-btn-buy:hover {
-  background: var(--text-light);
-  border-color: var(--text-light);
-  color: var(--bg-dark);
+  background: #9b2c2c;
+  border-color: #7f1d1d;
+  color: #ffffff;
   transform: translateY(-2px);
-  box-shadow: 0 8px 24px rgba(205, 162, 107, 0.35);
+  box-shadow: 0 8px 24px rgba(197, 48, 48, 0.35);
 }
 
 .hero-ctas .btn-secondary {
-  border-radius: 40px;
+  border-radius: 6px;
   border: 1px solid var(--border-technical-strong);
   background: transparent;
   color: var(--text-light);
@@ -390,10 +390,10 @@
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    align-items: center;
-    text-align: center;
+    align-items: flex-start;
+    text-align: left;
     gap: 0;
-    margin: 0 auto;
+    margin: 0;
     width: 100%;
     max-width: 100%;
   }
@@ -421,17 +421,17 @@
 
   .hero-ctas {
     flex-direction: row;
-    justify-content: center;
+    justify-content: flex-start;
     gap: 0.75rem;
     width: 100%;
     max-width: 100%;
-    margin: 0 auto;
+    margin: 0;
   }
 
   .hero-ctas .btn-primary,
   .hero-ctas .btn-secondary {
-    flex: 1;
-    max-width: 160px;
+    flex: none;
+    width: auto;
     justify-content: center;
     padding: 0.85rem 1.25rem;
     font-size: 0.875rem;
