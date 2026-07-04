@@ -103,6 +103,32 @@
   margin-top: -1.25rem;
 }
 
+.hero-ctas .btn-primary.hero-btn-buy {
+  background-color: #c53030;
+  color: #ffffff;
+  border-radius: 4px;
+  border: 1px solid #b71c1c;
+}
+
+.hero-ctas .btn-primary.hero-btn-buy:hover {
+  background-color: #9b2c2c;
+  border-color: #7f1d1d;
+  color: #ffffff;
+  transform: translateY(-2px);
+  box-shadow: 0 8px 24px rgba(197, 48, 48, 0.4);
+}
+
+.hero-ctas .btn-secondary.hero-btn-sell {
+  border-radius: 4px;
+  border: 1px solid var(--border-technical-strong);
+}
+
+.hero-ctas .btn-secondary.hero-btn-sell:hover {
+  background: rgba(205, 162, 107, 0.1);
+  border-color: var(--accent-gold);
+  color: var(--accent-gold);
+}
+
 /* Floating Scroll Indicator */
 .hero-scroll-indicator {
   position: absolute;
@@ -387,19 +413,22 @@
   }
 
   .hero-ctas {
-    flex-direction: column;
+    flex-direction: row;
+    justify-content: center;
     gap: 0.75rem;
     width: 100%;
-    max-width: 300px;
+    max-width: 100%;
     margin: -0.75rem auto 0 auto;
   }
 
   .hero-ctas .btn-primary,
   .hero-ctas .btn-secondary {
-    width: 100%;
+    flex: 1;
+    max-width: 160px;
     justify-content: center;
-    padding: 0.75rem 1.5rem;
-    font-size: 0.85rem;
+    padding: 0.75rem 1rem;
+    font-size: 0.825rem;
+    text-align: center;
   }
 
   .hero-brand-logo {

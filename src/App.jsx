@@ -129,7 +129,7 @@ export default function App() {
               <div className="hero-ctas">
                 <a
                   href="#projects"
-                  className="btn-primary"
+                  className="btn-primary hero-btn-buy"
                   onClick={(e) => handleScrollTo(e, 'projects')}
                   data-cursor="buy"
                 >
@@ -137,7 +137,7 @@ export default function App() {
                 </a>
                 <a
                   href="#inquire"
-                  className="btn-secondary"
+                  className="btn-secondary hero-btn-sell"
                   onClick={(e) => handleScrollTo(e, 'inquire')}
                   data-cursor="sell"
                 >
