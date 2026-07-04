@@ -1,5 +1,5 @@
 import { useState, useEffect, useRef } from 'react';
-import { ArrowRight, Globe, Layers, ShieldCheck, Phone, MessageCircle, MapPin, Building2, Sparkles, Calendar, Leaf, Home, TrendingUp, Building } from 'lucide-react';
+import { ArrowRight, Globe, Layers, ShieldCheck, Phone, MessageCircle, MapPin, Building2, Sparkles, Calendar } from 'lucide-react';
 import './App.css';
 
 // Components
@@ -104,11 +104,6 @@ export default function App() {
 
           <div className="content-wrapper">
             <div className="hero-text-box">
-              {/* Dynamic Pill Badge */}
-              <div className="hero-pill-badge">
-                <span>🇮🇳 Hyderabad's Premier Land & Estates</span>
-              </div>
-
               <div className="hero-header-group">
                 <h1>
                   <BlurText
@@ -127,75 +122,8 @@ export default function App() {
                   />
                 </h1>
                 <p className="hero-desc">
-                  Building modern infrastructure, sustainable developments, and premium lands in Hyderabad. Designed for today. Built for tomorrow.
+                  Building modern infrastructure, sustainable developments, and premium lands in Hyderabad. We design spaces that offer exceptional quality and value for future generations.
                 </p>
-              </div>
-
-              {/* Side-by-side Features Row */}
-              <div className="hero-features-row">
-                <div className="feature-badge">
-                  <div className="feature-icon-wrapper">
-                    <ShieldCheck size={16} />
-                  </div>
-                  <div className="feature-text">
-                    <span className="feature-title">Trusted</span>
-                    <span className="feature-subtitle">Legacy</span>
-                  </div>
-                </div>
-                <div className="feature-badge">
-                  <div className="feature-icon-wrapper">
-                    <Leaf size={16} />
-                  </div>
-                  <div className="feature-text">
-                    <span className="feature-title">Sustainable</span>
-                    <span className="feature-subtitle">Future</span>
-                  </div>
-                </div>
-                <div className="feature-badge">
-                  <div className="feature-icon-wrapper">
-                    <Building size={16} />
-                  </div>
-                  <div className="feature-text">
-                    <span className="feature-title">Premium</span>
-                    <span className="feature-subtitle">Locations</span>
-                  </div>
-                </div>
-              </div>
-
-              {/* Interactive Category Selector Card */}
-              <div className="hero-category-card">
-                <h5 className="category-card-title">Find Your Perfect Property</h5>
-                <div className="category-items-grid">
-                  <div className="category-item">
-                    <div className="category-icon">
-                      <Home size={18} />
-                    </div>
-                    <div className="category-info">
-                      <span className="cat-name">Residential</span>
-                      <span className="cat-sub">Plots & Villas</span>
-                    </div>
-                  </div>
-                  <div className="category-item-divider" />
-                  <div className="category-item">
-                    <div className="category-icon">
-                      <Building2 size={18} />
-                    </div>
-                    <div className="category-info">
-                      <span className="cat-name">Commercial</span>
-                      <span className="cat-sub">Plots & Spaces</span>
-                    </div>
-                  </div>
-                  <div className="category-item-divider" />
-                  <div className="category-item">
-                    <div className="category-icon">
-                      <TrendingUp size={18} />
-                    </div>
-                    <div className="category-info">
-                      <span className="cat-name">Investments</span>
-                      <span className="cat-sub">High Growth</span>
-                    </div>
-                  </div>
-                </div>
               </div>
 
               <div className="hero-ctas">
@@ -213,11 +141,13 @@ export default function App() {
                   onClick={(e) => handleScrollTo(e, 'inquire')}
                   data-cursor="sell"
                 >
-                  Sell / List Properties <ArrowRight size={16} />
+                  Sell / List Properties
                 </a>
               </div>
             </div>
           </div>
+
+
 
           <div className="hero-scroll-indicator">
             <span>SCROLL TO VIEW</span>

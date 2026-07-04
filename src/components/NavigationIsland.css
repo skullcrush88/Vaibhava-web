@@ -1,15 +1,13 @@
 /* Navigation Island Floating Shell */
 .nav-island-container {
   position: fixed;
-  top: 1.5rem;
-  left: 50%;
-  transform: translateX(-50%);
+  top: 0;
+  left: 0;
+  width: 100%;
+  max-width: 100% !important;
+  transform: none !important;
   z-index: 100;
-  width: 90%;
-  max-width: 880px;
-  transition: max-width 0.6s cubic-bezier(0.16, 1, 0.3, 1),
-    top 0.6s cubic-bezier(0.16, 1, 0.3, 1),
-    background-color 0.4s ease;
+  transition: background-color 0.4s ease;
 }
 
 .nav-island-inner {
@@ -17,15 +15,15 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 0.6rem 1.75rem;
-  border-radius: 40px;
-  background: var(--glass-bg);
+  padding: 1rem 4vw;
+  border-radius: 0 !important;
+  background: var(--bg-dark);
   backdrop-filter: var(--glass-blur);
   -webkit-backdrop-filter: var(--glass-blur);
-  border: 1px solid var(--glass-border);
-  background-image: var(--glass-highlight);
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
-  transition: all 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+  border: none !important;
+  border-bottom: 1.5px solid var(--border-technical) !important;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.02);
+  transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
   overflow: visible;
 }
 
@@ -187,48 +185,14 @@
   transition: width 0.1s ease-out;
 }
 
-/* Scrolled Compact State */
+/* Scrolled State */
 .nav-island-container.scrolled {
-  max-width: 400px;
-  top: 1rem;
+  top: 0;
 }
 
 .nav-island-container.scrolled .nav-island-inner {
-  padding: 0.5rem 1.25rem;
+  padding: 0.75rem 4vw;
   background: var(--nav-scrolled-bg);
-  border-color: var(--border-technical-strong);
-}
-
-.nav-island-container.scrolled .nav-links-list {
-  opacity: 0;
-  max-width: 0;
-  transform: scale(0.9);
-  pointer-events: none;
-  overflow: hidden;
-  margin: 0;
-  gap: 0;
-}
-
-.nav-island-container.scrolled .nav-brand {
-  font-size: 0.85rem;
-}
-
-/* Hover Expanded Scrolled State */
-.nav-island-container.scrolled.hovered {
-  max-width: 880px;
-}
-
-.nav-island-container.scrolled.hovered .nav-island-inner {
-  background: var(--nav-scrolled-hover-bg);
-  border-color: var(--border-technical-strong);
-}
-
-.nav-island-container.scrolled.hovered .nav-links-list {
-  opacity: 1;
-  max-width: 550px;
-  transform: scale(1);
-  pointer-events: auto;
-  gap: 1.5rem;
 }
 
 /* Scroll Direction Hide State */
@@ -353,54 +317,29 @@
     color: var(--accent-gold);
   }
   
+  .nav-island-inner {
+    flex-wrap: wrap;
+    padding: 0.8rem 1.5rem;
+  }
+  
   .nav-island-container {
+    width: 100% !important;
+    max-width: 100% !important;
     top: 0 !important;
     left: 0 !important;
     transform: none !important;
-    width: 100% !important;
-    max-width: 100% !important;
-    position: fixed;
-    transition: none;
-  }
-
-  .nav-island-inner {
-    border-radius: 0 !important;
-    border-left: none !important;
-    border-right: none !important;
-    border-top: none !important;
-    border-bottom: 1px solid var(--border-technical) !important;
-    background: rgba(252, 251, 249, 0.95) !important;
-    padding: 1rem 1.5rem !important;
-    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.03) !important;
-    flex-wrap: wrap;
-  }
-
-  /* Disable scrolled compact state on mobile */
-  .nav-island-container.scrolled {
-    max-width: 100% !important;
-    top: 0 !important;
   }
 
   .nav-island-container.scrolled .nav-island-inner {
-    padding: 1rem 1.5rem !important;
-    background: rgba(252, 251, 249, 0.95) !important;
+    padding: 0.75rem 1.5rem !important;
   }
-
-  .nav-island-container.scrolled:not(.mobile-menu-active) {
-    max-width: 100% !important;
-  }
-
-  .nav-island-container.scrolled:not(.mobile-menu-active) .nav-island-inner {
-    padding: 1rem 1.5rem !important;
-    flex-wrap: wrap !important;
-  }
-
+  
   .nav-island-container.scrolled:not(.mobile-menu-active) .brand-accent {
-    display: block !important;
+    display: none !important;
   }
   
   .nav-island-container.mobile-menu-active {
-    max-width: 100% !important;
+    max-width: 92% !important;
   }
   
   .nav-links-list {
