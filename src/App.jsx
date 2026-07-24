@@ -19,6 +19,7 @@ import Services from './components/Services';
 export default function App() {
   const [isMobile, setIsMobile] = useState(false);
   const [activeVideo, setActiveVideo] = useState('logo'); // 'logo' or 'drone'
+  const [loadSecondaryVideo, setLoadSecondaryVideo] = useState(false);
   const logoVideoRef = useRef(null);
   const droneVideoRef = useRef(null);
 
@@ -29,6 +30,14 @@ export default function App() {
     const handler = (e) => setIsMobile(e.matches);
     mediaQuery.addEventListener('change', handler);
     return () => mediaQuery.removeEventListener('change', handler);
+  }, []);
+
+  useEffect(() => {
+    // Start loading the second video after a 2.5-second delay to prioritize main content and save mobile memory
+    const timer = setTimeout(() => {
+      setLoadSecondaryVideo(true);
+    }, 2500);
+    return () => clearTimeout(timer);
   }, []);
 
   useEffect(() => {
@@ -46,7 +55,7 @@ export default function App() {
           if (logoVideoRef.current) {
             logoVideoRef.current.pause();
           }
-          if (droneVideoRef.current) {
+          if (droneVideoRef.current && loadSecondaryVideo) {
             droneVideoRef.current.currentTime = 0;
             await droneVideoRef.current.play();
           }
@@ -57,7 +66,7 @@ export default function App() {
     };
 
     playVideo();
-  }, [activeVideo, isMobile]);
+  }, [activeVideo, isMobile, loadSecondaryVideo]);
 
   const handleScrollTo = (e, targetId) => {
     e.preventDefault();
@@ -86,6 +95,7 @@ export default function App() {
             muted
             playsInline
             preload="auto"
+            poster="/logo.png"
             src={isMobile ? '/logovid.mp4' : '/logolaptop.mp4'}
             onEnded={() => setActiveVideo('drone')}
           />
@@ -96,8 +106,8 @@ export default function App() {
             autoPlay={activeVideo === 'drone'}
             muted
             playsInline
-            preload="auto"
-            src="/drone.mp4"
+            preload={loadSecondaryVideo ? "auto" : "none"}
+            src={loadSecondaryVideo ? "/drone.mp4" : ""}
             onEnded={() => setActiveVideo('logo')}
           />
           <div className="hero-vignette" />
