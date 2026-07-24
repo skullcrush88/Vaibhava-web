@@ -264,6 +264,6 @@ a {
   }
   
   .hero-scroll-indicator {
-    display: none !important;
+    display: flex !important;
   }
 }
