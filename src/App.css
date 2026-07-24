@@ -139,7 +139,7 @@
 .hero-scroll-indicator {
   position: absolute;
   bottom: 2.5rem;
-  right: 4vw;
+  left: 4vw;
   z-index: 3;
   display: flex;
   align-items: center;

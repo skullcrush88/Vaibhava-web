@@ -150,8 +150,8 @@ export default function App() {
 
 
           <div className="hero-scroll-indicator">
-            <span>SCROLL TO VIEW</span>
             <div className="indicator-line-box"></div>
+            <span>SCROLL TO VIEW</span>
           </div>
         </header>
 
