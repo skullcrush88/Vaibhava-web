@@ -12,6 +12,8 @@ export default function InquiryForm() {
   });
   const [selectedDate, setSelectedDate] = useState('');
   const [selectedTime, setSelectedTime] = useState('');
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [submitError, setSubmitError] = useState('');
   const [submitted, setSubmitted] = useState(false);
 
   // Generate the next 5 working days (Mon-Fri) dynamically
@@ -39,10 +41,50 @@ export default function InquiryForm() {
 
   const timeSlots = ['10:00 AM', '01:30 PM', '03:30 PM', '05:00 PM'];
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    if (formData.name.trim() && formData.email.trim()) {
-      setSubmitted(true);
+    setIsSubmitting(true);
+    setSubmitError('');
+
+    const accessKey = import.meta.env.VITE_WEB3FORMS_ACCESS_KEY;
+    if (!accessKey) {
+      setSubmitError('Forms access key not found. Please add VITE_WEB3FORMS_ACCESS_KEY in Vercel environment variables.');
+      setIsSubmitting(false);
+      return;
+    }
+
+    try {
+      const response = await fetch('https://api.web3forms.com/submit', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          'Accept': 'application/json'
+        },
+        body: JSON.stringify({
+          access_key: accessKey,
+          subject: `New Property Inquiry from ${formData.name}`,
+          from_name: 'Vaibhava Realty Website',
+          name: formData.name,
+          email: formData.email,
+          purpose: formData.purpose,
+          category: formData.category,
+          message: formData.message,
+          preferred_date: selectedDate || 'Not selected',
+          preferred_time: selectedTime || 'Not selected',
+        })
+      });
+
+      const data = await response.json();
+      if (data.success) {
+        setSubmitted(true);
+      } else {
+        setSubmitError(data.message || 'Something went wrong. Please try again.');
+      }
+    } catch (error) {
+      console.error('Submission error:', error);
+      setSubmitError('Failed to send inquiry. Please check your internet connection.');
+    } finally {
+      setIsSubmitting(false);
     }
   };
 
@@ -225,8 +267,14 @@ export default function InquiryForm() {
                   />
                 </div>
 
-                <button type="submit" className="form-submit-btn">
-                  Submit Inquiry <ArrowRight size={18} />
+                {submitError && (
+                  <div className="form-submit-error" style={{ color: '#ff6b6b', fontSize: '0.9rem', marginBottom: '1rem', textAlign: 'center' }}>
+                    {submitError}
+                  </div>
+                )}
+
+                <button type="submit" className="form-submit-btn" disabled={isSubmitting}>
+                  {isSubmitting ? 'Sending...' : 'Submit Inquiry'} <ArrowRight size={18} />
                 </button>
 
               </form>

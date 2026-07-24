@@ -13,6 +13,8 @@ export default function CareersModal({ isOpen, onClose }) {
     message: ''
   });
   const [submitted, setSubmitted] = useState(false);
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [submitError, setSubmitError] = useState('');
 
   const openPositions = [
     {
@@ -37,21 +39,59 @@ export default function CareersModal({ isOpen, onClose }) {
     setFormData((prev) => ({ ...prev, [name]: value }));
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    // Simulate API call
-    setTimeout(() => {
-      setSubmitted(true);
-      // Reset form
-      setFormData({
-        name: '',
-        email: '',
-        phone: '',
-        position: '',
-        resumeLink: '',
-        message: ''
+    setIsSubmitting(true);
+    setSubmitError('');
+
+    const accessKey = import.meta.env.VITE_WEB3FORMS_ACCESS_KEY;
+    if (!accessKey) {
+      setSubmitError('Forms access key not found. Please add VITE_WEB3FORMS_ACCESS_KEY in Vercel environment variables.');
+      setIsSubmitting(false);
+      return;
+    }
+
+    try {
+      const response = await fetch('https://api.web3forms.com/submit', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          'Accept': 'application/json'
+        },
+        body: JSON.stringify({
+          access_key: accessKey,
+          subject: `New Job Application: ${formData.position} from ${formData.name}`,
+          from_name: 'Vaibhava Realty Careers',
+          name: formData.name,
+          email: formData.email,
+          phone: formData.phone,
+          position: formData.position,
+          resume_or_portfolio_link: formData.resumeLink,
+          cover_message: formData.message || 'No cover message provided'
+        })
       });
-    }, 800);
+
+      const data = await response.json();
+      if (data.success) {
+        setSubmitted(true);
+        // Reset form
+        setFormData({
+          name: '',
+          email: '',
+          phone: '',
+          position: '',
+          resumeLink: '',
+          message: ''
+        });
+      } else {
+        setSubmitError(data.message || 'Something went wrong. Please try again.');
+      }
+    } catch (error) {
+      console.error('Submission error:', error);
+      setSubmitError('Failed to send application. Please check your internet connection.');
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   if (!isOpen) return null;
@@ -203,8 +243,14 @@ export default function CareersModal({ isOpen, onClose }) {
                   />
                 </div>
 
-                <button type="submit" className="btn-primary careers-submit-btn">
-                  Submit Application <Send size={14} />
+                {submitError && (
+                  <div className="careers-submit-error" style={{ color: '#ff6b6b', fontSize: '0.85rem', marginBottom: '1rem', marginTop: '-0.5rem' }}>
+                    {submitError}
+                  </div>
+                )}
+
+                <button type="submit" className="btn-primary careers-submit-btn" disabled={isSubmitting}>
+                  {isSubmitting ? 'Submitting...' : 'Submit Application'} <Send size={14} />
                 </button>
               </form>
             </div>
