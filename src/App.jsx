@@ -15,8 +15,15 @@ import CustomCursor from './components/CustomCursor';
 import AboutUs from './components/AboutUs';
 import FAQ from './components/FAQ';
 import Services from './components/Services';
+import Error404 from './components/Error404';
+
+// Temporary site state configuration
+// Set FORCE_404 = true to force show the 404 error page on the root URL
+// Set FORCE_404 = false to restore normal operation
+const FORCE_404 = true;
 
 export default function App() {
+  const [isBypassed, setIsBypassed] = useState(false);
   const [isMobile, setIsMobile] = useState(false);
   const [activeVideo, setActiveVideo] = useState('logo'); // 'logo' or 'drone'
   const logoVideoRef = useRef(null);
@@ -66,6 +73,10 @@ export default function App() {
       element.scrollIntoView({ behavior: 'smooth' });
     }
   };
+
+  if ((FORCE_404 || window.location.pathname !== '/') && !isBypassed) {
+    return <Error404 bypassAction={() => setIsBypassed(true)} />;
+  }
 
   return (
     <SmoothScroll>
